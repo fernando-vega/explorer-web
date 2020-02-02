@@ -1,0 +1,94 @@
+@import '../../../../vars';
+:host{
+  .alquiler-page{
+    margin: 100px 0 50px;
+    padding: 0 15px;
+    aside {
+      margin: 0 auto 15px;
+      width: 100%;
+      h3{
+        text-transform: uppercase;
+      }
+    }
+    .blue-title{
+      padding-left: 5px;
+    }
+    .content-items-alquiler{
+      margin: 30px 0;
+      .item-alquiler{
+        padding-right: 10px;
+        .item-alquiler-img{
+          box-shadow: 0px 0px 10px 5px rgba($black2, 0.1);
+          margin: auto;
+          max-width: 270px;
+          max-height: 270px;
+          padding: 10px;
+          position: relative;
+          span {
+            background-color: $yellow;
+            color: $black2;
+            left: 20px;
+            top: 20px;
+            padding: 2px 5px;
+            position: absolute;
+          }
+          img{
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+        .item-alquiler-data{
+          max-width: 270px;
+          margin: 30px auto;
+          img{
+            max-width: 100%;
+            padding: 15px 0;
+          }
+          .text-data-item-alquiler{
+            padding-bottom: 15px;
+            h4{
+              color: $blue;
+              font-size: 16px;
+              text-transform: uppercase;
+            }
+            a {
+              transform: translateY(-15px);
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+    @include for-tablet-landscape-up {
+      aside{
+        padding-left: 4%;
+      }
+      .content-items-alquiler{
+        padding-right: 4%;
+        .item-alquiler{
+          .item-alquiler-img{
+            margin: initial;
+            max-width: 300px;
+            max-height: 300px;
+          }
+          .item-alquiler-data{
+            margin: 30px 0;
+            max-width: 320px;
+            padding: 0 15px;
+            .text-data-item-alquiler{
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+    @include for-big-desktop-up {
+      .content-items-alquiler{
+        padding-right: 15%;
+      }
+    }
+    
+  }
+}

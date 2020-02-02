@@ -1,0 +1,44 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,500,700&display=swap');
+
+/* color palette */
+
+$blue: #0468BE;
+$blue2: #43689b;
+$blue3: #05AEF1;
+$green: #038B25;
+$yellow: #FFCF61;
+$yellow2: #D8B404;
+$orange: #F1651D;
+$gray: #666666;
+$black2: #35352E;
+$black: #000000;
+$white: #ffffff;
+
+/* fuentes */
+
+$font-lato: 'Lato', sans-serif;
+$font-poppins: 'Poppins', sans-serif;
+
+/* media queries */
+
+@mixin for-phone-only {
+  @media (max-width: 540px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 768px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 960px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1140px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+.row, .row > *{
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,9 @@
+<owl-carousel [options]="carouselOptions" [items]="servicios.images" [carouselClasses]="['owl-theme', 'row', 'sliding', 'owl-card-service']">
+<a routerLink="/servicios/{{ servicio.id }}" class="card" *ngFor="let servicio of servicios">
+    <img src="{{ servicio.img }}" alt="">
+    <div class="text-card">
+      <h5>{{ servicio.title | firstWord }}</h5>
+      <h5>{{ servicio.title | finalText }}</h5>
+    </div>
+  </a>
+</owl-carousel>

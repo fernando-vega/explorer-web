@@ -1,0 +1,54 @@
+@import '../../../../vars';
+
+:host{
+  .card{
+    display: block;
+    left: 50%;
+    max-width: 100%;
+    position: relative;
+    transform: translateX(-50%);
+    img{
+      max-width: 100%;
+      height: auto;
+      object-fit: none;
+      object-position: 50% 50%;
+      transition: all .3s;
+      z-index: -1;
+    }
+    .text-card{
+      bottom: 15px;
+      left: 15px;
+      position: absolute;
+      z-index: 9;
+      max-width: 55%;
+      h5{
+        color: #ffffff;
+        font-weight: 400;
+        line-height: 1.5em;
+        margin: 0;
+        text-transform: uppercase;
+        &:first-child{
+          color: $yellow;
+          font-weight: 700;
+          font-size: 14px;
+        }
+      }
+    }
+    &::before{
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+      content: '';
+      height: 100%;
+      position: absolute;
+      transition: all .5s;
+      width: 100%;
+    }
+    &:hover{
+      img{
+        object-position: 60% 40%;
+      }
+      &::before{
+        opacity: .5;
+      }
+    }
+  }
+}

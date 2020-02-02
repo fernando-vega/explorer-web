@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-hero *ngIf="isHome"></app-hero>
+<app-slider-hero *ngIf="!isHome"></app-slider-hero>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+

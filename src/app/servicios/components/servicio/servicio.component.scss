@@ -1,0 +1,36 @@
+@import '../../../../vars';
+
+:host{
+  .banner-servicio{
+    img{
+      display: block;
+      height: 140px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .page{
+    .blue-title{
+      padding-left: 15px;
+      h5 {
+        text-transform: lowercase;
+        &::first-letter{
+          text-transform: uppercase;
+        }
+      }
+    }
+    .img-service-content{
+      background-position: center !important;
+      background-size: cover !important;
+      height: 40vh;
+      margin: auto;
+      width: calc(100% - 60px);
+    }
+    .btn-back{
+      color: $blue;
+      font-size: 22px;
+      font-weight: 700;
+      padding: 0 50px;
+    }
+  }
+}

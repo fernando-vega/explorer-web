@@ -1,0 +1,7 @@
+<section class="content-hero">
+  <owl-carousel [options]="carouselOptions" [items]="imgs" [carouselClasses]="['owl-theme', 'row', 'sliding', 'slide-hero']">
+    <div class="item" *ngFor="let image of imgs;let i= index">
+      <img class="slide-image" src="{{image.image}}" >
+    </div>
+  </owl-carousel>
+</section>

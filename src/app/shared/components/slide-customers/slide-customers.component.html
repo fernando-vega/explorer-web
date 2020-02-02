@@ -1,0 +1,12 @@
+<div class="customers">
+  <div class="blue-title">
+    <h5>Nuestros clientes</h5>
+  </div>
+  <section class="content-customers">
+    <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding', 'owl-slide-customers']">
+      <div class="item" *ngFor="let image of images;let i= index">
+        <img class="slide-image" src="{{ image.image  }}" >
+      </div>
+    </owl-carousel>
+  </section>
+</div>

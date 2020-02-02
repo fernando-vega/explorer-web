@@ -1,0 +1,19 @@
+<div class="banner-servicio">
+  <img src="../../../../assets/images/banners/banner-institutional-1.jpg" alt="">
+</div>
+<section class="container">
+  <div class="page">
+    <div class="blue-title">
+      <h5>{{ servicio.title }}</h5>
+    </div>
+    <div class="img-service-content" [ngStyle]="{background: 'url(' + servicio.img + ')'}">
+    </div>
+    <p>{{ servicio.description }}</p>
+  </div>
+</section>
+<div class="banner-parallax" [ngStyle]="{background: 'url('+ servicio.bannerImg +')'}"></div>
+<section class="container">
+  <div class="page">
+    <a class="btn-back" routerLink="/servicios/"> < Volver</a>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+@import '../../../../vars';
+:host {
+  display: block;
+  margin: 50px 0;
+  .counter{
+    padding:  50px 0;
+    position: relative;
+    &::after{
+      background: url(../../../../assets/images/pictures/counter-background.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      content: '';
+      height: 100%;
+      width: 100%;
+      left: 0;
+      opacity: 0.1;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+    .counter-content-items{
+      .counter-item{
+        margin: 0 15px;
+        .counter-content-img{
+          height: 75px;
+          display: flex;
+          justify-content: center;
+          img{
+            max-width: 60px;
+            max-height: 60px;
+          }
+        }
+        h4{
+          color: $blue;
+          font-size: 60px;
+          line-height: 1em;
+        }
+        p {
+          padding: 15px 30px;
+          line-height: 1em;
+        }
+      }
+    }
+    @include for-tablet-portrait-up {
+      
+    }
+  }
+}

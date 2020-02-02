@@ -1,1 +1,350 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'vars';
+
+body {
+  font-family: $font-poppins;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  text-rendering: geometricPrecision;
+}
+
+button {
+  appearance: none;
+  outline: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  &.lg-container{
+    max-width: 1500;
+  }
+}
+
+.page{
+  display: block;
+  margin: 50px auto 0;
+  max-width: 900px;
+  h2,h3,p{
+    margin: 30px 0;
+  }
+  h2{
+    color: $blue;
+    text-align: center;
+    padding: 15px 50px 30px;
+    font-size: 24px;
+  }
+  p{
+    padding: 0 30px;
+    font-size: 16px;
+    text-align: justify;
+  }
+}
+.banner-parallax{
+  height: 45vh;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  margin: 50px 0;
+}
+
+.btn {
+  border: 1px solid $blue;
+  margin-top: 20px !important;
+  padding: 0 15px !important;
+  position: relative;
+  transition: all .3s;
+  font-size: 16px;
+  &::before{
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 0;
+    z-index: -1;
+  }
+  &.btn-white{
+    color: $blue;
+  }
+  &.btn-blue{
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+  &.btn-blue-2{
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+  &:hover{
+    &.btn-white{
+      color: #ffffff;
+      &::before{
+        background-color: $blue;
+        width: 100%;
+      }
+    }
+    &.btn-blue{
+      color: $blue;
+      border-color: #ffffff;
+      z-index: 1;
+      &::before{
+        background-color: #ffffff;
+        width: 100%;
+      }
+    }
+    &.btn-blue-2{
+      color: $blue3;
+      border-color: #ffffff;
+      z-index: 1;
+      &::before{
+        background-color: #ffffff;
+        width: 100%;
+      }
+    }
+  }
+}
+.blue-title{
+  color: $blue;
+  position: relative;
+  width: max-content;
+  margin: 15px 0 30px 15px;
+  h5{
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    &::before{
+      background-color: $blue3;
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      right: -55px;
+      top: 47%;
+    }
+  }
+}
+
+.owl-carousel {
+  .owl-nav {
+    margin: 0 !important;
+    outline: none;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 100%;
+
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+    }
+
+    .owl-prev {
+      float: left;
+      left: 0;
+    }
+
+    .owl-next {
+      float: right;
+      right: 0;
+    }
+
+    .owl-prev.disabled,
+    .owl-next.disabled {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+
+    .prev-slide {
+      background-color: $blue2;
+      left: -20px;
+      position: relative;
+
+      &::before {
+        content: url(./assets/images/icons/icon-arrow-blue.svg);
+        color: #ffffff;
+        outline: none;
+        position: absolute;
+        transform: rotate(180deg);
+      }
+    }
+
+    .next-slide {
+      background-color: $blue2;
+      right: 10px;
+      margin-top: 7px;
+      position: relative;
+
+      &::before {
+        content: url(./assets/images/icons/icon-arrow-blue.svg);
+        color: #ffffff;
+        outline: none;
+        position: absolute;
+      }
+    }
+
+    .prev-slide:hover {
+      background-position: 0px -53px;
+    }
+
+    .next-slide:hover {
+      background-position: -24px -53px;
+    }
+  }
+  .owl-item {
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .slide-image {
+        height: 60vh;
+        object-fit: cover;
+      }
+  
+      .slide-text {
+        align-items: center;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        left: 5%;
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        width: 90%;
+  
+        .content-icon {
+          align-items: center;
+          background-color: $blue;
+          justify-content: center;
+          display: flex;
+          margin-bottom: 15px;
+          max-width: 160px;
+          min-width: 160px;
+          padding: 30px 15px;
+          position: relative;
+  
+          img {
+            width: 80%;
+          }
+          &.blue {
+            background-color: $blue;
+          }
+        }
+        .text-slide{
+          text-align: center;
+          h4 {
+            font-size: 25px;
+            line-height: 1em;
+            text-transform: uppercase;
+          }
+          a{
+            border-bottom: 3px solid transparent;
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 40px;
+            position: relative;
+            transition: all .3s;
+            &::before{
+              color: $yellow;
+              content: url(./assets/images/icons/icon-arrow-link-small.svg);
+              position: absolute;
+              right: -20px;
+              top: -3px;
+            }
+            &:hover{
+              border-bottom: 3px solid $yellow;
+            }
+          }
+        }
+        @include for-tablet-portrait-up {
+          flex-direction: row;
+          justify-content: left;
+          left: 0;
+          width: 50%;
+          .content-icon{
+            margin-right: 30px;
+          }
+          .text-slide {
+            text-align: left;
+            h4{
+              font-size: 40px;
+            }
+            a{
+              font-size: 25px;
+              &::before{
+                content: url(./assets/images/icons/icon-arrow-link.svg);
+                right: -30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.owl-card-service{
+    .prev-slide {
+      left: -20px;
+    }
+    .next-slide {
+      right: 10px;
+    }
+  }
+  &.owl-slide-customers{
+    .slide-image{
+      padding: 15px;
+      max-height: 80px !important;
+      width: auto !important;
+    }
+  }
+  &.slide-hero{
+    .owl-item {
+      .item {
+        .slide-image {
+          height: 40vh;
+        }
+      }
+    }
+    .prev-slide {
+      left: 20px;
+      &::before{
+        content: url(./assets/images/icons/icon-arrow-hero.svg);
+      }
+    }
+    .next-slide {
+      right: 50px;
+      &::before{
+        content: url(./assets/images/icons/icon-arrow-hero.svg);
+      }
+    }
+  }
+}
