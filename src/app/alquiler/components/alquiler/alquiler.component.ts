@@ -4,14 +4,13 @@ import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-alquiler',
   templateUrl: './alquiler.component.html',
-  styleUrls: ['./alquiler.component.scss']
+  styleUrls: ['./alquiler.component.scss'],
 })
 export class AlquilerComponent implements OnInit {
-
   data = {
     name: 'Alquiler',
     bio: 'Alquileres',
-    image: 'avatar.png'
+    image: 'avatar.png',
   };
 
   disponible = true;
@@ -27,7 +26,7 @@ export class AlquilerComponent implements OnInit {
       { name: 'og:url', content: '/alquiler' },
       { name: 'og:title', content: this.data.name },
       { name: 'og:description', content: this.data.bio },
-      { name: 'og:image', content: this.data.image }
+      { name: 'og:image', content: this.data.image },
     ]);
   }
 }
