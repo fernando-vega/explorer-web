@@ -1,0 +1,46 @@
+:host {
+  .banner-servicio{
+    img{
+      display: block;
+      height: 140px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  .content-img-product{
+    margin: auto;
+    position: relative;
+    width: 95%;
+    img{
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+  }
+  .content-btn-options{
+    padding: 5px 0;
+    .btn-ribbon{
+      margin: 15px;
+      font-size: 16px !important;
+    }
+  }
+  .content-icons-product{
+    width: 100%;
+    margin: auto;
+    figure {
+      height: 130px;
+      position: relative;
+      text-align: center;
+      img {
+        max-width: 70px;
+        max-height: 70px;
+      }
+      figcaption {
+        bottom: 30px;
+        margin: auto;
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}

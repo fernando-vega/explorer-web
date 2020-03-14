@@ -22,6 +22,7 @@ li {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -52,6 +53,7 @@ p {
   display: block;
   margin: 50px auto 0;
   max-width: 900px;
+  padding: 0 15px;
   h2,h3,p{
     margin: 30px 0;
   }
@@ -65,6 +67,53 @@ p {
     padding: 0 30px;
     font-size: 16px;
     text-align: justify;
+  }
+  blockquote{
+    border-left: 10px $yellow solid;
+    font-size: 18px;
+    font-weight: 700;
+    color: $black2;
+    padding-left: 15px;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .btn-back{
+    color: $blue;
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px;
+    padding: 0;
+    position: relative;
+    transition: all .3s;
+    width: max-content;
+    &::after {
+      content: '';
+      height: 100%;
+      right: 0;
+      position: absolute;
+      width: 0;
+      transition: all .3s;
+      z-index: -1;
+    }
+    &:hover{
+      color: #ffffff;
+      padding: 0 15px;
+      &::after {
+        width: 100%;
+        background-color: $blue;
+      }
+    }
+  }
+}
+.banner-page{
+  img{
+    display: block;
+    height: 140px;
+    object-fit: cover;
+    width: 100%;
   }
 }
 .banner-parallax{
@@ -132,6 +181,33 @@ p {
     }
   }
 }
+
+.btn-ribbon{
+  background-color: $blue;
+  border: 1px solid $blue;
+  color: #ffffff;
+  display: block;
+  font-size: 14px;
+  max-width: max-content;
+  margin-top: 30px;
+  padding: 2px 10px;
+  position: relative;
+  transition: all .3s;
+  &:hover{
+    color: $blue;
+    background-color: transparent;
+  }
+}
+
+.product-available{
+  background-color: #FFCF61;
+  color: #35352E;
+  left: 20px;
+  top: 20px;
+  padding: 2px 5px;
+  position: absolute;
+}
+
 .blue-title{
   color: $blue;
   position: relative;
@@ -225,11 +301,21 @@ p {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
+      &::before{
+        content: '';
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
       .slide-image {
         height: 60vh;
         object-fit: cover;
       }
-  
+
       .slide-text {
         align-items: center;
         color: #ffffff;
@@ -241,7 +327,7 @@ p {
         transform: translateY(-50%);
         top: 50%;
         width: 90%;
-  
+
         .content-icon {
           align-items: center;
           background-color: $blue;
@@ -252,7 +338,7 @@ p {
           min-width: 160px;
           padding: 30px 15px;
           position: relative;
-  
+
           img {
             width: 80%;
           }
@@ -325,12 +411,19 @@ p {
       max-height: 80px !important;
       width: auto !important;
     }
+    .owl-item {
+      .item{
+        &::before {
+          background-color: transparent;
+        }
+      }
+    }
   }
   &.slide-hero{
     .owl-item {
       .item {
         .slide-image {
-          height: 40vh;
+          height: 50vh;
         }
       }
     }

@@ -1,15 +1,23 @@
+<div class="banner-page">
+  <img
+    src="../../../../assets/images/banners/banner-institutional-1.jpg"
+    alt=""
+  />
+</div>
 <div class="container">
-  <div class="blue-title">
-    <h5>Servicios</h5>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 content-card" *ngFor="let servicio of servicios">
-      <div class="card">
-        <img src="{{ servicio.img }}" alt="">
-        <div class="text-card">
-          <h5>{{ servicio.title | firstWord }}</h5>
-          <h5>{{ servicio.title | finalText }}</h5>
-          <a routerLink="{{ servicio.id }}" class="btn btn-blue">Ver más</a>
+  <div class="page">
+    <div class="blue-title">
+      <h5>Servicios</h5>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 content-card" *ngFor="let servicio of servicios">
+        <div class="card">
+          <img src="{{ servicio.img }}" alt="">
+          <div class="text-card">
+            <h5>{{ servicio.title | firstWord }}</h5>
+            <h5>{{ servicio.title | finalText }}</h5>
+            <a routerLink="{{ servicio.title | normalizedUrl }}" class="btn btn-blue">Ver más</a>
+          </div>
         </div>
       </div>
     </div>

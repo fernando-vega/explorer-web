@@ -1,95 +1,55 @@
+<div class="banner-page">
+  <img
+    src="../../../../assets/images/banners/banner-institutional-1.jpg"
+    alt=""
+  />
+</div>
 <section class="lg-container">
   <div class="row alquiler-page">
-    <aside class="col-xs-12 col-sm-3">
+    <aside class="col-xs-10 col-sm-3">
       <h3>Filtros</h3>
-      <ul>
-        <li>Potencia</li>
-        <li>Voltaje</li>
-        <li>
-          Cambiador
-          <div class="sub-menu">
+      <ul class="aside-menu">
+        <li><p>Potencia</p></li>
+        <li><p>Voltaje</p></li>
+        <li [ngClass]="{'open': status}">
+          <p (click)="open()">Cambiador</p>
+          <div class="aside-sub-menu">
             <div class="item">Bajo Carga</div>
-            <div class="item">Sin Carga</div>
+            <div class="item active">Sin Carga</div>
             <div class="item">Ninguno</div>
           </div>
         </li>
-        <li>Impedancia</li>
-        <li>Grupo de conxión</li>
+        <li><p>Impedancia</p></li>
+        <li><p>Grupo de conxión</p></li>
       </ul>
-      <h3>Disponible</h3>
-      <h3>Ver todos</h3>
+      <h3> <a> Disponible </a></h3>
+      <h3> <a> Ver todos </a></h3>
     </aside>
     <div class="col-xs-12 col-sm-9 row">
       <div class="blue-title">
         <h5>Transformadores en Alquiler</h5>
       </div>
       <div class="col-xs-12 content-items-alquiler row">
-        <div class="col-xs-12 col-sm-6 col-lg-4 item-alquiler">
+        <div class="col-xs-12 col-sm-6 col-lg-4 item-alquiler" *ngFor="let product of products">
           <div class="item-alquiler-img">
             <img
               src="../../../../assets/images/products/transformador.png"
               alt="Transformador"
             />
-            <span *ngIf="disponible">Disponible</span>
+            <span class="product-available" *ngIf="product.available">Disponible</span>
           </div>
           <div class="item-alquiler-data row top-xs center-xs start-sm">
             <div class="col-xs-12 col-sm-4">
               <img
-                src="../../../../assets/images/icons/icon-transformador.svg"
+                src="{{ product.mainIcon }}"
                 alt="icon-transformador"
               />
             </div>
             <div class="col-xs-12 col-sm-8 text-data-item-alquiler">
-              <h4>Transformador</h4>
-              <p>Potencia 70 MVA</p>
-              <p>OLTC</p>
-              <a href="#" class="btn btn-white">Ver</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4 item-alquiler">
-          <div class="item-alquiler-img">
-            <img
-              src="../../../../assets/images/products/transformador.png"
-              alt="Transformador"
-            />
-            <span *ngIf="disponible2">Disponible</span>
-          </div>
-          <div class="item-alquiler-data row top-xs center-xs start-sm">
-            <div class="col-xs-12 col-sm-4">
-              <img
-                src="../../../../assets/images/icons/icon-transformador.svg"
-                alt="icon-transformador"
-              />
-            </div>
-            <div class="col-xs-12 col-sm-8 text-data-item-alquiler">
-              <h4>Transformador</h4>
-              <p>Potencia 70 MVA</p>
-              <p>OLTC</p>
-              <a href="#" class="btn btn-white">Ver</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-lg-4 item-alquiler">
-          <div class="item-alquiler-img">
-            <img
-              src="../../../../assets/images/products/transformador.png"
-              alt="Transformador"
-            />
-            <span *ngIf="disponible3">Disponible</span>
-          </div>
-          <div class="item-alquiler-data row top-xs center-xs start-sm">
-            <div class="col-xs-12 col-sm-4">
-              <img
-                src="../../../../assets/images/icons/icon-transformador.svg"
-                alt="icon-transformador"
-              />
-            </div>
-            <div class="col-xs-12 col-sm-8 text-data-item-alquiler">
-              <h4>Transformador</h4>
-              <p>Potencia 70 MVA</p>
-              <p>OLTC</p>
-              <a href="#" class="btn btn-white">Ver</a>
+              <h4>{{ product.title }}</h4>
+              <p>{{ product.features }}</p>
+              <p>{{ product.type }}</p>
+              <a routerLink="{{product.title | normalizedUrl }}" class="btn btn-white">Ver</a>
             </div>
           </div>
         </div>

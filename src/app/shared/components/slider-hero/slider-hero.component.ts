@@ -39,19 +39,15 @@ export class SliderHeroComponent implements OnInit {
   images = [
     {
       image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/2.jpg',
-      page: '/nosotros'
-    },
-    {
-      image: '../../../../assets/images/banners/banner-institutional-1.jpg',
-      page: '/servicios'
+      page: '/historia'
     },
     {
       image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/1.jpg',
-      page: '/nosotros'
+      page: '/historia'
     },
     {
       image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/5.jpg',
-      page: '/nosotros'
+      page: '/historia'
     },
     {
       image: '../../../../assets/images/banners/banner-quienes-somos-1.png',
@@ -64,10 +60,6 @@ export class SliderHeroComponent implements OnInit {
     {
       image: '../../../../assets/images/banners/banner-institutional-1.jpg',
       page: '/institucional'
-    },
-    {
-      image: '../../../../assets/images/banners/banner-alquiler.jpg',
-      page: '/alquiler'
     },
     {
       image: '../../../../assets/images/banners/banner-institutional-1.jpg',
@@ -83,7 +75,6 @@ export class SliderHeroComponent implements OnInit {
             this.imgs.push(image);
           }
         }
-        console.log(this.imgs);
       }
       if (events instanceof NavigationStart) {
         this.imgs = [];

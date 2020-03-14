@@ -4,7 +4,7 @@
   .content-header {
     header {
       .preheader {
-        border-bottom: 4px #E5E5E5 double;
+        border-bottom: 4px #e5e5e5 double;
         padding: 15px 3%;
 
         .preheader-info {
@@ -79,13 +79,12 @@
       .menu-icon {
         #nav-icon {
           height: 40px;
-          left: 50%;
-          margin-right: 10%;
+          left: 100%;
           overflow: hidden;
           position: relative;
           top: 60%;
-          transform: rotate(0deg) translate(-50%, -50%);
-          transition: .5s ease-in-out;
+          transform: rotate(0deg) translate(-100%, -50%);
+          transition: 0.5s ease-in-out;
           width: 40px;
 
           span {
@@ -96,7 +95,7 @@
             background: $blue2;
             opacity: 1;
             transform: rotate(0deg);
-            transition: .25s ease-in-out;
+            transition: 0.25s ease-in-out;
 
             &:nth-child(even) {
               left: 50%;
@@ -181,7 +180,7 @@
         margin: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height .3s;
+        transition: max-height 0.3s;
         z-index: 999;
 
         .menu-list {
@@ -218,13 +217,13 @@
               padding: 12px 20px;
             }
 
-            >.submenu {
+            > .submenu {
               max-height: 0;
-              transition: all .3s;
+              transition: all 0.3s;
 
               li {
                 max-height: 0;
-                transition: all .3s;
+                transition: all 0.3s;
                 overflow: hidden;
                 position: relative;
 
@@ -235,18 +234,17 @@
                 .submenu {
                   max-height: 0;
                   position: relative;
-                  transition: all .3s;
+                  transition: all 0.3s;
 
                   li {
                     max-height: 0;
-                    transition: all .3s;
+                    transition: all 0.3s;
 
                     a {
                       padding-left: 50px;
                     }
                   }
                 }
-
               }
             }
 
@@ -255,7 +253,7 @@
                 max-height: 300px;
                 position: relative;
 
-                >li {
+                > li {
                   max-height: 300px;
 
                   &:hover {
@@ -287,7 +285,9 @@
           max-height: initial;
           overflow: visible;
           margin: 0 0 20px 0;
-
+          &.open{
+            margin: 0 0 20px 0;
+          }
           .menu-list {
             flex-direction: row;
 
@@ -330,7 +330,7 @@
                       color: $black2;
                     }
 
-                    >.submenu {
+                    > .submenu {
                       position: absolute;
                       left: 97%;
                       top: 0px;
@@ -345,7 +345,7 @@
                     &:hover {
                       border-left: 4px solid $black2;
 
-                      >a {
+                      > a {
                         background-color: #dfdfdf;
                       }
                     }
@@ -354,10 +354,10 @@
               }
 
               .menu-link {
-                padding: .5rem 5px;
+                padding: 0.5rem 5px;
                 background-color: initial;
                 color: $black2;
-                transition: all .3s;
+                transition: all 0.3s;
                 border: 0;
 
                 &::before {
@@ -366,7 +366,7 @@
                   height: 3px;
                   left: 20px;
                   position: absolute;
-                  transition: all .3s;
+                  transition: all 0.3s;
                   width: calc(100% - 35px);
                   z-index: -1;
                 }
@@ -444,7 +444,7 @@
                 }
               }
 
-              &:hover {
+              &:hover, &.active {
                 overflow: visible;
 
                 &.content-submenu {

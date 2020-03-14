@@ -1,14 +1,14 @@
 <section class="content-hero">
-  <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-    <div class="item" *ngFor="let image of images;let i= index">
-      <img class="slide-image" src="{{image.image}}" >
+  <owl-carousel [options]="carouselOptions" [items]="servicios" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div class="item" *ngFor="let servicio of servicios;let i= index">
+      <img class="slide-image" src="{{servicio.img}}" >
       <div class="slide-text">
         <div class="content-icon">
-        <img src="{{image.icon}}" alt="">
+        <img src="{{servicio.icon}}" alt="{{ servicio.title }}">
         </div>
         <div class="text-slide">
-          <h4>{{image.text}}</h4>
-          <a href="{{image.link}}">Ver más</a>
+          <h4>{{servicio.title}}</h4>
+          <a routerLink="/servicios/{{ servicio.title | normalizedUrl }}">Ver más</a>
         </div>
       </div>
     </div>

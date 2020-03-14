@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="page">
+    <div class="blue-title">
+      <h5>
+        {{ event.title }}
+      </h5>
+    </div>
+    <div class="row content-event">
+      <div class="content-event-img">
+        <img src="{{ event.image }}" alt="{{ event.title }}">
+      </div>
+      <blockquote>
+        <span *ngIf="event.location"> <strong>Lugar:</strong> {{ event.location }}</span>
+        <div class="date">
+          <p><strong>Fecha: </strong> {{ event.date_start | date }}</p>
+          <p *ngIf="event.date_end">{{ event.date_end }}</p>
+          <p *ngIf="event.hour_start"> <strong>Hora: </strong> {{ event.hour_start }}</p>
+          <p *ngIf="event.hour_end"> <strong>Duración: </strong> {{ event.duration }}</p>
+        </div>
+      </blockquote>
+      <div class="description" *ngIf="event.description">
+        <p>{{ event.description }}</p>
+      </div>
+    </div>
+    <app-backbutton></app-backbutton>
+  </div>
+</div>

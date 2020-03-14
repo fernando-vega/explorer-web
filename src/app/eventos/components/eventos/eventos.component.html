@@ -1,1 +1,36 @@
-<p>eventos works!</p>
+<div class="banner-page">
+  <img
+    src="../../../../assets/images/banners/banner-institutional-1.jpg"
+    alt=""
+  />
+</div>
+<div class="container">
+  <div class="page">
+    <div class="blue-title">
+      <h5>Eventos</h5>
+    </div>
+    <div class="events-page">
+      <div class="row start-xs middle-xs">
+        <div class="col-xs-12 item-event" *ngFor="let event of events">
+          <div class="row center-xs start-sm between-sm">
+            <div class="col-xs-12 col-sm-3">
+              <div class="image-content">
+                <img src="{{ event.image }}" alt="{{ event.title }}">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <div class="text-content">
+                <h4>{{ event.title }}</h4>
+                <strong>Día: {{ event.date_start | date }}</strong>
+                /
+                <strong>Hora: {{ event.hour_start }}</strong>
+                <p>{{ event.description | slice:0:300 }}...</p>
+                <a routerLink="{{ event.title | normalizedUrl }}" class="btn btn-white">Leer más</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

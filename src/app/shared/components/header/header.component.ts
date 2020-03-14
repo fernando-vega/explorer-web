@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from '../../../services/servicios/servicios.service';
-import { ServiciosInterface } from '../../../models/servicios.model';
+import { ServiciosService } from '../../../core/services/servicios/servicios.service';
+import { ServiciosInterface } from '../../../core/models/servicios.interface';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import { ServiciosInterface } from '../../../models/servicios.model';
 export class HeaderComponent implements OnInit {
 
   status = false;
-  servicios: any;
+  servicios;
 
   constructor( private servicioService: ServiciosService ) { }
 

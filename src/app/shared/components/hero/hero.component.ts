@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServiciosService } from 'src/app/core/services/servicios/servicios.service';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit{
 
   carouselOptions = {
     margin: 25,
@@ -37,42 +38,13 @@ export class HeroComponent {
     }
   };
 
-  images = [
-    {
-      text: 'Reparación y mantenimiento',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/2.jpg',
-      icon: '../../../../assets/images/icons/icon-hand-white.svg',
-      link: '#'
-    },
-    {
-      text: 'Asesoría para adquisición de equipos',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/3.jpg',
-      icon: '../../../../assets/images/icons/icon-gear-white.svg',
-      link: '#'
-    },
-    {
-      text: 'Alquiler para atención de contingencias',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/1.jpg',
-      icon: '../../../../assets/images/icons/icon-warning-machine-white.svg',
-      link: '#'
-    },
-    {
-      text: 'Servicio técnico en campo',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/4.jpg',
-      icon: '../../../../assets/images/icons/icon-location-servic-white.svg',
-      link: '#'
-    },
-    {
-      text: 'Motores',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/5.jpg',
-      icon: '../../../../assets/images/icons/icon-motor-white.svg',
-      link: '#'
-    },
-    {
-      text: 'Capacitaciones',
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/7.jpg',
-      icon: '../../../../assets/images/icons/icon-training-white.svg',
-      link: '#'
-    }
-  ];
+  servicios;
+
+  constructor(
+    private serviciosService: ServiciosService
+  ) {}
+
+  ngOnInit() {
+    this.servicios = this.serviciosService.getAllServicios();
+  }
 }

@@ -20,6 +20,11 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
+        path: 'blog',
+        data: {title: 'Explorer | Blog'},
+        loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+      },
+      {
         path: 'quienes-somos',
         data: {title: 'Explorer | Nosotros'},
         loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
@@ -38,6 +43,11 @@ const routes: Routes = [
         path: 'institucional',
         data: {title: 'Explorer | Institucional'},
         loadChildren: () => import('./about/institutional.module').then(m => m.InstitutionalModule)
+      },
+      {
+        path: 'blog',
+        data: {title: 'Explorer | Servicios'},
+        loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
       },
       {
         path: 'servicios',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { ProductService } from '../../../core/services/product/product.service';
 
 @Component({
   selector: 'app-alquiler',
@@ -13,13 +14,19 @@ export class AlquilerComponent implements OnInit {
     image: 'avatar.png',
   };
 
-  disponible = true;
-  disponible2 = false;
-  disponible3 = false;
+  status = false;
+  products;
 
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(
+    private title: Title,
+    private meta: Meta,
+    private productsService: ProductService
+    ) {}
 
   ngOnInit() {
+
+    this.products = this.productsService.getAllProducts();
+
     this.title.setTitle(this.data.name);
     this.meta.addTags([
       { name: 'twitter:card', content: 'summary' },
@@ -28,5 +35,13 @@ export class AlquilerComponent implements OnInit {
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image },
     ]);
+  }
+
+  open() {
+    if (this.status) {
+      this.status = false;
+    } else {
+      this.status = true;
+    }
   }
 }

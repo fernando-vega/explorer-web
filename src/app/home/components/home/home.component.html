@@ -58,7 +58,7 @@
             <p>
               Industrias Explorer nace en el año de 1962 en la ciudad de Duitama, Boyacá, Colombia, como una microempresa dedicada a la reparación de motores eléctricos para varias industrias de la región. Dados los nuevos requerimientos por parte de las empresas cliente, como Acerías Paz del Río, Bavaria, Cementos Boyacá, Cementos Paz del Río, Siderúrgica de Boyacá y Maguncia, entre otras.
             </p>
-            <a class="btn btn-white" href="#">Leer más</a>
+            <a class="btn btn-white" routerLink="/historia">Leer más</a>
           </div>
         </div>
       </div>
@@ -66,50 +66,16 @@
   </div>
   <div class="gallery-home">
     <div class="row">
-      <div class="col-xs-12 col-md-4 gallery-home-item row">
-        <div class="col-xs-12 gallery-home-item-img">
-          <img src="../../../../assets/images/pictures/sustentable.jpg" alt="Empresa sustentable">
+      <div class="col-xs-12 col-md-4 gallery-home-item row" *ngFor="let post of posts | async; let i = index">
+        <div class="col-xs-12 gallery-home-item-img" [ngClass]="{'first-xs last-md' : i === 1 || i === 4 || i === 7 || i === 10}">
+          <img [src]="post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['full'].source_url" alt="{{ post.title.rendered }}
+          ">
         </div>
         <div class="gallery-home-item-text row middle-xs">
           <div>
-            <h4>Somos una empresa sustentable</h4>
-            <p>Certificado que lo acredita como una de las 1900 firmas
-              en el mundo que dedica sus actividades al mejoramiento
-              del sector eléctrico</p>
-            <a class="btn btn-blue" href="#">Ver más</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4 gallery-home-item row">
-        <div class="gallery-home-item-text row middle-xs">
-          <div>
-            <h4>Reconocimiento como miembro activo EASA.</h4>
-            <p>Certificado que lo acredita como una de las 1900 firmas en
-              el mundo que dedica sus actividades al mejoramiento del
-              sector eléctrico</p>
-              <a class="btn btn-blue-2" href="#">Ver más</a>
-          </div>
-        </div>
-        <div class="col-xs-12 gallery-home-item-img first-xs last-md">
-          <img src="../../../../assets/images/pictures/instalaciones.png" alt="Miembro activo easa">
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4 gallery-home-item row">
-        <div class="col-xs-12 gallery-home-item-img">
-          <img src="../../../../assets/images/pictures/nueva-planta.jpg" alt="Nueva planta">
-        </div>
-        <div class="gallery-home-item-text row middle-xs">
-          <div>
-            <h4>Nueva planta</h4>
-            <p>Cuenta con un área de 100 m² aproximadamente.
-              Está dotado con equipos de prueba de última
-              tecnología,verificados y calibrados continuamente
-              para ejecutar pruebas de diagnóstico a
-              transformadores y motores de potencia en sitio y
-              en planta Industrias Explorer empleando los
-              lineamientos de los estándares nacionales e
-              internacionales NTC, IEC, IEEE, ASTMD.</p>
-            <a class="btn btn-blue" href="#">Ver más</a>
+            <h4>{{ post.title.rendered }}</h4>
+            <div class="content-text" [innerHTML]="post.excerpt.rendered"></div>
+            <a class="btn btn-blue" routerLink="/blog/{{ post.slug }}">Ver más</a>
           </div>
         </div>
       </div>
@@ -126,7 +92,7 @@
             <h5>Servicios</h5>
           </div>
           <h4>Trabajamos bajo los más altos estandares de calidad</h4>
-          <a href="#" class="text-ribbon">
+          <a routerLink="/servicios" class="btn-ribbon">
             Todos los servicios
           </a>
         </div>

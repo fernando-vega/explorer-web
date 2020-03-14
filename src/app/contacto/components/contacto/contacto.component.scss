@@ -1,0 +1,94 @@
+@import '../../../../vars';
+
+:host {
+  .page-contact{
+    .content-form{
+      padding: 0 15px;
+      form{
+        padding: 50px;
+        box-shadow: $shadow;
+        .form-group{
+          position: relative;
+          input, textarea {
+            border: none;
+            border-bottom: 1px solid $gray;
+            color: $black2;
+            display: block;
+            font-family: $font-poppins;
+            font-weight: 500;
+            margin-bottom: 20px;
+            outline: none;
+            resize: none;
+            padding: 8px 5px 8px 0;
+            position: relative;
+            transition: border .3s;
+            width: 100%;
+            &:focus{
+              border-bottom: 1px solid transparent;
+              ~ span {
+                width: 100%;
+                background-color: $blue;
+              }
+            }
+          }
+          span {
+            position: absolute;
+            height: 1px;
+            width: 0;
+            left: 0;
+            bottom: 20px;
+            transition: all .3s .1s;
+          }
+          textarea {
+            height: 80px;
+          }
+        }
+      }
+    }
+    .content-info{
+      padding: 15px;
+      text-align: center;
+      h4 {
+        text-transform: uppercase;
+        color: $blue;
+        line-height: 1em;
+        margin: 15px 0;
+      }
+      p {
+        color: $black2;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        a{
+          color: $black2;
+          font-size: 13px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+    @include for-tablet-portrait-up{
+      .content-form{
+        form{
+          input[type=tel] {
+            margin-left: 30px;
+          }
+          .form-group{
+            &:nth-child(2) {
+              span {
+                margin-left: 30px;
+              }
+            }
+          }
+        }
+      }
+      .content-info {
+        padding-left: 60px;
+        text-align: left;
+        p{
+          text-align: left;
+        }
+      }
+    }
+  }
+}

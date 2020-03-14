@@ -1,1 +1,18 @@
-<p>clientes works!</p>
+<div class="banner-page">
+  <img
+    src="../../../../assets/images/banners/banner-institutional-1.jpg"
+    alt=""
+  />
+</div>
+<div class="container">
+  <div class="page">
+    <div class="blue-title">
+      <h5>NUESTROS CLIENTES</h5>
+    </div>
+    <div class="row center-xs middle-xs">
+      <div class="col-xs-12 col-sm-6 col-md-4 content-customer-img" *ngFor="let customer of customers">
+        <img src="{{ customer.image }}" alt="{{ customer.name }}">
+      </div>
+    </div>
+  </div>
+</div>

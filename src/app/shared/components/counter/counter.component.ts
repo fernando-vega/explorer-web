@@ -1,7 +1,7 @@
 import { Component, Renderer2, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { interval, Subject } from 'rxjs';
 
-import { ItemsCounterService } from '../../../services/counter/items-counter.service';
+import { ItemsCounterService } from '../../../core/services/counter/items-counter.service';
 
 @Component({
   selector: 'app-counter',

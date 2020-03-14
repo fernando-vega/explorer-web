@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CustomersService } from '../../../core/services/customers/customers.service';
 
 @Component({
   selector: 'app-slide-customers',
   templateUrl: './slide-customers.component.html',
   styleUrls: ['./slide-customers.component.scss']
 })
-export class SlideCustomersComponent {
+export class SlideCustomersComponent implements OnInit{
 
   carouselOptions = {
     margin: 15,
@@ -33,27 +34,12 @@ export class SlideCustomersComponent {
     }
   };
 
-  images = [
-    {
-      image: '../../../../assets/images/customers/logo-argos.png'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-emp.png'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-holcim.svg'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-indumil.jpg'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-pazderio.jpg'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-emp.png'
-    },
-    {
-      image: '../../../../assets/images/customers/logo-holcim.svg'
-    },
-  ];
+  images;
+
+  constructor(private customerService: CustomersService) {}
+
+  ngOnInit() {
+    this.images = this.customerService.getAllCustomers();
+  }
+
 }

@@ -1,0 +1,36 @@
+<div class="banner-page">
+  <img
+    src="../../../../assets/images/banners/banner-institutional-1.jpg"
+    alt=""
+  />
+</div>
+<div class="container">
+  <div class="page product-alquiler">
+    <div class="blue-title">
+      <h5>{{ product.title }}</h5>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="content-img-product">
+          <img src="{{ product.img }}" alt="{{ product.title }}">
+          <span class="product-available" *ngIf="product.available">Disponible</span>
+        </div>
+        <div class="row content-btn-options">
+          <a class="btn-ribbon">Consulte un asesor</a>
+          <a href="{{ product.urlFicha }}" class="btn-ribbon">Descargar ficha técnica</a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="row content-icons-product">
+          <div class="col-xs-12 col-sm-6 row top-xs center-xs" *ngFor="let img of product.icons">
+            <figure>
+              <img src="{{ img.icon}}" alt="{{ img.text }}">
+              <figcaption>{{ img.text }}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-backbutton></app-backbutton>
+  </div>
+</div>

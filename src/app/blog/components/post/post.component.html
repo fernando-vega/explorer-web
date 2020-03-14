@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="page">
+    <div class="blue-title">
+      <h5>Blog</h5>
+    </div>
+    <div class="post-content" *ngIf="post">
+      <h2>{{ post.title.rendered }}</h2>
+      <img *ngIf="image" src="{{ image.media_details.sizes.full.source_url }}"  alt="{{ post.title.rendered }}">
+      <blockquote class="txt-gray" [innerHTML]="post.excerpt.rendered"></blockquote>
+      <div [innerHTML]="post.content.rendered"></div>
+    </div>
+    <app-backbutton></app-backbutton>
+  </div>
+</div>

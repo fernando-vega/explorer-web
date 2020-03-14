@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { ServiciosService } from '../../../services/servicios/servicios.service';
-import { ServiciosInterface } from '../../../models/servicios.model';
+import { ServiciosService } from '../../../core/services/servicios/servicios.service';
+import { NormalizedUrlService } from '../../../core/services/normalizedUrl/normalized-url.service';
 
 @Component({
   selector: 'app-servicio',
@@ -11,18 +11,18 @@ import { ServiciosInterface } from '../../../models/servicios.model';
 })
 export class ServicioComponent implements OnInit {
 
-  servicio: ServiciosInterface;
+  servicio;
   constructor(
     private route: ActivatedRoute,
-    private serviciosService: ServiciosService
+    private serviciosService: ServiciosService,
+    private normalizeUrl: NormalizedUrlService
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      const id = params.id;
-      this.servicio = this.serviciosService.getServicio(id);
+      const title = this.normalizeUrl.normalizedUrl(params.title);
+      this.servicio = this.serviciosService.getServicio(title);
     });
-
   }
 
 }

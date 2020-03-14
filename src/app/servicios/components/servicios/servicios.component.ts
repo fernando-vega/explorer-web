@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { ServiciosService } from '../../../services/servicios/servicios.service';
+import { ServiciosService } from '../../../core/services/servicios/servicios.service';
 
 @Component({
   selector: 'app-servicios',
@@ -23,6 +23,7 @@ export class ServiciosComponent implements OnInit {
     private meta: Meta) {}
 
   ngOnInit() {
+
     this.servicios = this.servicioService.getAllServicios();
 
     this.title.setTitle(this.data.name);

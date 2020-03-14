@@ -45,32 +45,32 @@
     <div class="row center-xs" >
       <nav class="menu" [ngClass]="{'open': status}">
         <ul class="menu-list">
-          <li class="menu-list-item-link content-submenu">
-            <a routerLinkActive="active" class="menu-link">
+          <li class="menu-list-item-link content-submenu" routerLinkActive="active">
+            <a class="menu-link">
               Nosotros
             </a>
             <ul class="submenu">
               <li>
-                <a routerLink="/quienes-somos">Quienes somos</a>
+                <a (click)="menu()" routerLink="/quienes-somos">Quienes somos</a>
               </li>
               <li>
-                <a routerLink="/historia">Historia</a>
+                <a (click)="menu()" routerLink="/historia">Historia</a>
               </li>
               <li>
-                <a routerLink="/institucional">Institucional</a>
+                <a (click)="menu()" routerLink="/institucional">Institucional</a>
               </li>
               <li>
-                <a routerLink="/certificaciones">Certificaciones</a>
+                <a (click)="menu()" routerLink="/certificaciones">Certificaciones</a>
               </li>
             </ul>
           </li>
-          <li class="menu-list-item-link content-submenu">
-            <a routerLink="/servicios" routerLinkActive="active" class="menu-link">
+          <li class="menu-list-item-link content-submenu" routerLinkActive="active">
+            <a routerLink="/servicios" class="menu-link">
               Servicios
             </a>
             <ul class="submenu">
               <li *ngFor="let servicio of servicios">
-                <a routerLink="/servicios/{{ servicio.id}}">{{ servicio.title }}</a>
+                <a (click)="menu()" routerLink="/servicios/{{ servicio.title | normalizedUrl }}">{{ servicio.title }}</a>
               </li>
              <!--  <li>
                 <a href="#">Servicio 2</a>
@@ -91,15 +91,15 @@
               </li> -->
             </ul>
           </li>
-          <li class="menu-list-item-link">
-            <a routerLink="/alquiler" routerLinkActive="active" class="menu-link">Alquiler</a>
+          <li class="menu-list-item-link" routerLinkActive="active">
+            <a (click)="menu()" routerLink="/alquiler"  class="menu-link">Alquiler</a>
           </li>
-          <li class="menu-list-item-link">
-            <a routerLink="/eventos" routerLinkActive="active" class="menu-link">Eventos</a>
+          <li class="menu-list-item-link" routerLinkActive="active">
+            <a (click)="menu()" routerLink="/eventos" class="menu-link">Eventos</a>
           </li>
-          <li class="menu-list-item-link content-submenu">
-            <a routerLink="/clientes" routerLinkActive="active" class="menu-link">Clientes</a>
-            <ul class="submenu">
+          <li class="menu-list-item-link" routerLinkActive="active">
+            <a (click)="menu()" routerLink="/clientes" class="menu-link">Clientes</a>
+            <!-- <ul class="submenu">
               <li>
                 <a href="#">Item</a>
               </li>
@@ -112,10 +112,10 @@
               <li>
                 <a href="#">Item</a>
               </li>
-            </ul>
+            </ul> -->
           </li>
-          <li class="menu-list-item-link">
-            <a routerLink="/contacto" routerLinkActive="active" class="menu-link">Contacto</a>
+          <li class="menu-list-item-link" routerLinkActive="active">
+            <a (click)="menu()" routerLink="/contacto" class="menu-link">Contacto</a>
           </li>
         </ul>
       </nav>

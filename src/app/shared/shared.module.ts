@@ -12,9 +12,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { SlideCustomersComponent } from './components/slide-customers/slide-customers.component';
 import { SliderHeroComponent } from './components/slider-hero/slider-hero.component';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
-import { FirstWordPipe } from '../pipes/first-word.pipe';
-import { FinalTextPipe } from '../pipes/final-text.pipe';
+import { FirstWordPipe } from './pipes/first-word.pipe';
+import { FinalTextPipe } from './pipes/final-text.pipe';
+import { NormalizedUrlPipe } from './pipes/normalized-url.pipe';
 
 import { from } from 'rxjs';
 
@@ -28,9 +30,11 @@ import { from } from 'rxjs';
     FooterComponent,
     HeroComponent,
     SlideCustomersComponent,
+    SliderHeroComponent,
     FirstWordPipe,
     FinalTextPipe,
-    SliderHeroComponent
+    NormalizedUrlPipe,
+    BackButtonComponent
   ],
   exports: [
     CardServiceComponent,
@@ -39,9 +43,11 @@ import { from } from 'rxjs';
     HeroComponent,
     FooterComponent,
     SlideCustomersComponent,
+    SliderHeroComponent,
     FinalTextPipe,
     FirstWordPipe,
-    SliderHeroComponent
+    NormalizedUrlPipe,
+    BackButtonComponent
   ],
   imports: [
     CommonModule,

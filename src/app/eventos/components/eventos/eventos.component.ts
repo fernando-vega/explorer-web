@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { EventsService } from 'src/app/core/services/events/events.service';
 
 @Component({
   selector: 'app-eventos',
@@ -14,9 +15,12 @@ export class EventosComponent implements OnInit {
     image: 'avatar.png'
   };
 
-  constructor(private title: Title, private meta: Meta) {}
+  events;
+
+  constructor(private title: Title, private meta: Meta, private eventsService: EventsService) {}
 
   ngOnInit() {
+    this.events = this.eventsService.getAllEvents();
     this.title.setTitle(this.data.name);
     this.meta.addTags([
       { name: 'twitter:card', content: 'summary' },
