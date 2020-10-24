@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ServiciosComponent } from './components/servicios/servicios.component';
-import { ServicioComponent } from './components/servicio/servicio.component';
+import { ServiceComponent } from './components/servicio/service.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':title',
-    component: ServicioComponent
+    component: ServiceComponent
   }
 ];
 

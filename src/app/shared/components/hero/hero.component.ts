@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from 'src/app/core/services/servicios/servicios.service';
+import { ServicesService } from 'src/app/core/services/servicios/services.service';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss']
+  styleUrls: ['./hero.component.scss'],
 })
-export class HeroComponent implements OnInit{
+export class HeroComponent implements OnInit {
 
-  carouselOptions = {
+  public carouselOptions = {
     margin: 25,
     nav: false,
     dots: false,
@@ -19,32 +19,39 @@ export class HeroComponent implements OnInit{
     responsive: {
       0: {
         items: 1,
-        nav: false
+        nav: false,
       },
       600: {
         items: 1,
-        nav: false
+        nav: false,
       },
       1000: {
         items: 1,
         nav: false,
-        loop: true
+        loop: true,
       },
       1500: {
         items: 1,
         nav: false,
-        loop: true
-      }
-    }
+        loop: true,
+      },
+    },
   };
 
-  servicios;
+  public services;
 
   constructor(
-    private serviciosService: ServiciosService
-  ) {}
+    private servicesService: ServicesService,
+  ) {
+  }
 
   ngOnInit() {
-    this.servicios = this.serviciosService.getAllServicios();
+    this.servicesService.getAllServices()
+      .then((response: any[]) => {
+        this.services = [];
+        response.forEach(async (service) => {
+          this.services.push(await this.servicesService.getServiceWordPressToModel(service));
+        });
+      });
   }
 }

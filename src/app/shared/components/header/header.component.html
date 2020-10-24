@@ -69,8 +69,8 @@
               Servicios
             </a>
             <ul class="submenu">
-              <li *ngFor="let servicio of servicios">
-                <a (click)="menu()" routerLink="/servicios/{{ servicio.title | normalizedUrl }}">{{ servicio.title }}</a>
+              <li *ngFor="let servicio of services">
+                <a (click)="menu()" routerLink="/servicios/{{ servicio.slug }}">{{ servicio.title }}</a>
               </li>
              <!--  <li>
                 <a href="#">Servicio 2</a>

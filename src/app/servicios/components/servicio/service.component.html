@@ -4,21 +4,17 @@
     alt=""
   />
 </div>
-<section class="container">
+<section class="container" *ngIf="service">
   <div class="page">
     <div class="blue-title">
-      <h5>{{ servicio.title }}</h5>
+      <h5>{{ service.title }}</h5>
     </div>
-    <div
-      class="img-service-content"
-      [ngStyle]="{ background: 'url(' + servicio.img + ')' }"
-    ></div>
-    <p>{{ servicio.description }}</p>
+    <div [innerHTML]="service.description"></div>
   </div>
 </section>
-<div
+<div *ngIf="service"
   class="banner-parallax"
-  [ngStyle]="{ background: 'url(' + servicio.bannerImg + ')' }"
+  [ngStyle]="{ background: 'url(' + service.bannerImg + ')' }"
 ></div>
 <section class="container">
   <div class="page">

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from '../../../core/services/servicios/servicios.service';
+import { ServicesService } from '../../../core/services/servicios/services.service';
 
 @Component({
   selector: 'app-card-service',
   templateUrl: './card-service.component.html',
-  styleUrls: ['./card-service.component.scss']
+  styleUrls: ['./card-service.component.scss'],
 })
 export class CardServiceComponent implements OnInit {
 
   servicios;
 
-  constructor(private servicioService: ServiciosService) {
+  constructor(private servicioService: ServicesService) {
   }
 
   carouselOptions = {
@@ -24,27 +24,33 @@ export class CardServiceComponent implements OnInit {
     responsive: {
       0: {
         items: 1,
-        nav: true
+        nav: true,
       },
       600: {
         items: 2,
-        nav: true
+        nav: true,
       },
       1000: {
         items: 3,
         nav: true,
-        loop: true
+        loop: true,
       },
       1500: {
         items: 3,
         nav: true,
-        loop: true
-      }
-    }
+        loop: true,
+      },
+    },
   };
 
   ngOnInit() {
-    this.servicios = this.servicioService.getAllServicios();
+    this.servicioService.getAllServices()
+      .then((response: any[]) => {
+        this.servicios = [];
+        response.forEach(async (service) => {
+          this.servicios.push(await this.servicioService.getServiceWordPressToModel(service));
+        });
+      });
   }
 
 }

@@ -1,4 +1,4 @@
-export interface ServiciosInterface {
+export interface IService {
   id: string;
   title: string;
   img: string;
@@ -6,4 +6,5 @@ export interface ServiciosInterface {
   icon?: string;
   description: string;
   category?: string;
+  slug?: string;
 }

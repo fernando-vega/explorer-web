@@ -5,7 +5,7 @@ import { CustomersService } from './services/customers/customers.service';
 import { NormalizedUrlService } from './services/normalizedUrl/normalized-url.service';
 import { PostService } from './services/post/post.service';
 import { ProductService } from './services/product/product.service';
-import { ServiciosService } from './services/servicios/servicios.service';
+import { ServicesService } from './services/servicios/services.service';
 import { EventsService } from './services/events/events.service';
 
 
@@ -20,7 +20,7 @@ import { EventsService } from './services/events/events.service';
     NormalizedUrlService,
     PostService,
     ProductService,
-    ServiciosService,
+    ServicesService,
     EventsService
   ]
 })

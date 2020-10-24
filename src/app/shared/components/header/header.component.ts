@@ -1,29 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosService } from '../../../core/services/servicios/servicios.service';
-import { ServiciosInterface } from '../../../core/models/servicios.interface';
+import { ServicesService } from '../../../core/services/servicios/services.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
 
   status = false;
-  servicios;
+  services;
 
-  constructor( private servicioService: ServiciosService ) { }
+  constructor(private servicioService: ServicesService) {
+  }
 
   ngOnInit() {
-    this.servicios = this.servicioService.getAllServicios();
+    this.servicioService.getAllServices()
+      .then((response: any[]) => {
+        this.services = [];
+        response.forEach(async (service) => {
+          this.services.push(await this.servicioService.getServiceWordPressToModel(service));
+        });
+      });
   }
 
   menu() {
-    if (this.status) {
-      this.status = false;
-    } else {
-      this.status = true;
-    }
+    this.status = !this.status;
   }
 
 }
