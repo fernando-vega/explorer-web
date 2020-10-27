@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ProductService } from '../../../core/services/product/product.service';
+import { CategoriesService } from '../../../core/services/categories/categories.service';
+import { ICategoryModel } from '../../../core/models/ICategory.model';
+import { ProductsInterface } from '../../../core/models/products.interface';
 
 @Component({
   selector: 'app-alquiler',
@@ -16,17 +19,18 @@ export class AlquilerComponent implements OnInit {
 
   status = false;
   products;
+  categories: ICategoryModel[];
 
   constructor(
     private title: Title,
     private meta: Meta,
-    private productsService: ProductService
-    ) {}
+    private productsService: ProductService,
+    private categoriesService: CategoriesService,
+  ) {
+  }
 
   ngOnInit() {
-
-    this.products = this.productsService.getAllProducts();
-
+    this.getProducts(undefined, undefined);
     this.title.setTitle(this.data.name);
     this.meta.addTags([
       { name: 'twitter:card', content: 'summary' },
@@ -35,13 +39,55 @@ export class AlquilerComponent implements OnInit {
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image },
     ]);
+    this.getCategories();
   }
 
-  open() {
-    if (this.status) {
-      this.status = false;
-    } else {
-      this.status = true;
-    }
+  getProducts(filterId: number | undefined, available: boolean | undefined) {
+    this.productsService.getAllProducts()
+      .then(value => {
+        this.products = [];
+        value.forEach(async (product: any) => {
+          // tslint:disable-next-line:triple-equals
+          if (available && product.disponibilidad == 1) {
+            this.products.push(await this.productsService.getProductWordPressToModel(product));
+          } else if ((filterId && this.filterByChildren(filterId, product)) || (!filterId && !available)) {
+            this.products.push(await this.productsService.getProductWordPressToModel(product));
+          }
+
+        });
+      });
+  }
+
+  filterByChildren(parent: number, product: any): boolean {
+
+    const subcategories = [];
+
+    this.categories.forEach(value => {
+      if (value.id === parent) {
+        value.subcategories.forEach(subcategory => {
+          subcategories.push(subcategory.id);
+        });
+      }
+    });
+
+    return product.categories.includes(parent) || product.categories.some((element) => {
+      return subcategories.includes(element);
+    });
+  }
+
+  getCategories() {
+    this.categoriesService.getAllCategories()
+      .then((value: ICategoryModel[]) => {
+        this.categories = value;
+      });
+  }
+
+  open(category: ICategoryModel) {
+    category.statusClass = !category.statusClass;
+    this.filter(category.id, undefined);
+  }
+
+  filter(id: number, available: boolean | undefined) {
+    this.getProducts(id, available);
   }
 }

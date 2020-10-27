@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="event">
   <div class="page">
     <div class="blue-title">
       <h5>
@@ -15,11 +15,10 @@
           <p><strong>Fecha: </strong> {{ event.date_start | date }}</p>
           <p *ngIf="event.date_end">{{ event.date_end }}</p>
           <p *ngIf="event.hour_start"> <strong>Hora: </strong> {{ event.hour_start }}</p>
-          <p *ngIf="event.hour_end"> <strong>Duración: </strong> {{ event.duration }}</p>
+          <p *ngIf="event.duration"> <strong>Duración: </strong> {{ event.duration }}</p>
         </div>
       </blockquote>
-      <div class="description" *ngIf="event.description">
-        <p>{{ event.description }}</p>
+      <div class="description" *ngIf="event.description" [innerHTML]="event.description">
       </div>
     </div>
     <app-backbutton></app-backbutton>

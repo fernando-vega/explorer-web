@@ -1,14 +1,17 @@
 export interface ProductsInterface {
   id: string;
   title: string;
-  img?: string;
-  mainIcon?: string;
-  features?: string;
-  type?: string;
-  icons?: any;
   description: string;
-  category?: string;
+  category?: number[];
   subCategory?: string;
+  img?: string;
+  characteristicOne?: string;
+  characteristicTwo?: string;
+  characteristicThree?: string;
+  characteristicFour?: string;
+  type?: string;
   available: boolean;
-  urlFicha?: string;
+  dataSheet?: string;
+  icons?: any[];
+  slug: string;
 }

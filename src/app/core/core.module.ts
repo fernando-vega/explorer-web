@@ -7,6 +7,9 @@ import { PostService } from './services/post/post.service';
 import { ProductService } from './services/product/product.service';
 import { ServicesService } from './services/servicios/services.service';
 import { EventsService } from './services/events/events.service';
+import { UtilsService } from './services/utils.service';
+import { PagesService } from './services/pages/pages.service';
+import { CategoriesService } from './services/categories/categories.service';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { EventsService } from './services/events/events.service';
     PostService,
     ProductService,
     ServicesService,
-    EventsService
+    EventsService,
+    UtilsService,
+    PagesService,
+    CategoriesService
   ]
 })
 export class CoreModule { }

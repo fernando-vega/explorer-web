@@ -4,7 +4,7 @@
     alt=""
   />
 </div>
-<div class="container">
+<div class="container" *ngIf="product">
   <div class="page product-alquiler">
     <div class="blue-title">
       <h5>{{ product.title }}</h5>
@@ -16,8 +16,8 @@
           <span class="product-available" *ngIf="product.available">Disponible</span>
         </div>
         <div class="row content-btn-options">
-          <a class="btn-ribbon">Consulte un asesor</a>
-          <a href="{{ product.urlFicha }}" class="btn-ribbon">Descargar ficha técnica</a>
+          <a class="btn-ribbon" href="/contacto">Consulte un asesor</a>
+          <a href="{{ product.dataSheet }}" target="_blank" class="btn-ribbon">Descargar ficha técnica</a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">

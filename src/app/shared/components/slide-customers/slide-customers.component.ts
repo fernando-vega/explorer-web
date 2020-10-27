@@ -6,7 +6,7 @@ import { CustomersService } from '../../../core/services/customers/customers.ser
   templateUrl: './slide-customers.component.html',
   styleUrls: ['./slide-customers.component.scss']
 })
-export class SlideCustomersComponent implements OnInit{
+export class SlideCustomersComponent implements OnInit {
 
   carouselOptions = {
     margin: 15,
@@ -39,7 +39,12 @@ export class SlideCustomersComponent implements OnInit{
   constructor(private customerService: CustomersService) {}
 
   ngOnInit() {
-    this.images = this.customerService.getAllCustomers();
+    this.customerService.getAllCustomers().then(customers => {
+      this.images = [];
+      customers.forEach(async (value) => {
+       this.images.push(await this.customerService.getClientesWordPressToModel(value));
+      });
+    });
   }
 
 }

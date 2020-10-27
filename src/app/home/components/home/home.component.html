@@ -41,23 +41,21 @@
       </div>
     </div>
     <div class="experience-years">
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-4 col-sm-offset-1 experience-years-image">
-          <img src="../../../../assets/images/pictures/experiencia.png" alt="Experiencia">
+      <div class="row center-xs" *ngIf="experiencePage">
+        <div class="col-xs-12 col-md-4 col-sm-offset-1 experience-years-image" >
+          <img alt="Experiencia" src="{{experiencePage.image}}">
         </div>
         <div class="col-xs-10 col-md-4 experience-years-text">
           <div class="row middle-xs center-xs start-md">
             <div class="col-xs-6 col-md-4 row end-xs center-md">
-              <div class="years"> 57 </div>
+              <div class="years"> {{experiencePage.years}} </div>
             </div>
             <div class="col-xs-6 col-md-8 row start-xs">
-              <h5>Años de <br> experiencia en el <br> Sector Eléctrico</h5>
+              <h5 [innerHTML]="experiencePage.title"></h5>
             </div>
           </div>
           <div class="experience-year-description row start-xs">
-            <p>
-              Industrias Explorer nace en el año de 1962 en la ciudad de Duitama, Boyacá, Colombia, como una microempresa dedicada a la reparación de motores eléctricos para varias industrias de la región. Dados los nuevos requerimientos por parte de las empresas cliente, como Acerías Paz del Río, Bavaria, Cementos Boyacá, Cementos Paz del Río, Siderúrgica de Boyacá y Maguncia, entre otras.
-            </p>
+            <p [innerHTML]="experiencePage.content"></p>
             <a class="btn btn-white" routerLink="/historia">Leer más</a>
           </div>
         </div>

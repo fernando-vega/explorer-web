@@ -5,6 +5,5 @@ export interface IService {
   bannerImg?: string;
   icon?: string;
   description: string;
-  category?: string;
   slug?: string;
 }

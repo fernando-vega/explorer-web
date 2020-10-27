@@ -21,10 +21,10 @@
             <div class="col-xs-12 col-sm-8">
               <div class="text-content">
                 <h4>{{ event.title }}</h4>
-                <strong>Día: {{ event.date_start | date }}</strong>
-                /
-                <strong>Hora: {{ event.hour_start }}</strong>
-                <p>{{ event.description | slice:0:300 }}...</p>
+                <strong>Día: {{ event.date_start | date:'shortDate' }}</strong> -
+                <strong>Hora: {{ event.date_start | date:'shortTime' }}</strong> -
+                <strong>Lugar: {{ event.location }}</strong>
+                <div class="no-padding" [innerHTML]="event.description"></div>
                 <a routerLink="{{ event.title | normalizedUrl }}" class="btn btn-white">Leer más</a>
               </div>
             </div>

@@ -1,81 +1,47 @@
 import { Injectable } from '@angular/core';
 import { CustomersInterface } from '../../models/customers.interface';
+import { HttpClient } from '@angular/common/http';
+import { UtilsService } from '../utils.service';
+import { IService } from '../../models/IService';
+import { ICounter } from '../../models/items-counter.interface';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomersService {
 
+  private url = `${environment.url_api}`;
 
-  customers: CustomersInterface[] = [
-    {
-      id: '1',
-      name: 'Argos',
-      image: '../../../../assets/images/customers/logo-argos.png'
-    },
-    {
-      id: '2',
-      name: 'EPM',
-      image: '../../../../assets/images/customers/logo-epm.png'
-    },
-    {
-      id: '3',
-      name: 'Holcim',
-      image: '../../../../assets/images/customers/logo-holcim.svg'
-    },
-    {
-      id: '4',
-      name: 'Indumil',
-      image: '../../../../assets/images/customers/logo-indumil.jpg'
-    },
-    {
-      id: '5',
-      name: 'Paz de Rio',
-      image: '../../../../assets/images/customers/logo-pazderio.jpg'
-    },
-    {
-      id: '6',
-      name: 'Codensa',
-      image: '../../../../assets/images/customers/logo-codensa.png'
-    },
-    {
-      id: '7',
-      name: 'ESSA',
-      image: '../../../../assets/images/customers/logo-essa.png'
-    },
-    {
-      id: '8',
-      name: 'Cedenar',
-      image: '../../../../assets/images/customers/logo-cedenar.png'
-    },
-    {
-      id: '9',
-      name: 'GENSA',
-      image: '../../../../assets/images/customers/logo-gensa.jpg'
-    },
-    {
-      id: '10',
-      name: 'chec',
-      image: '../../../../assets/images/customers/logo-chec.png'
-    },
-    {
-      id: '11',
-      name: 'CEPM',
-      image: '../../../../assets/images/customers/logo-cepm.png'
-    },
-    {
-      id: '12',
-      name: 'EBSA',
-      image: '../../../../assets/images/customers/logo-ebsa.png'
-    },
-  ];
-
-  getAllCustomers() {
-    return this.customers;
+  constructor(private httpClient: HttpClient, private utilService: UtilsService) {
   }
 
-  getCustomer(id: string) {
-    return this.customers.find(item => id === item.id);
+  // getCustomer(id: string) {
+  //   return this.customers.find(item => id === item.id);
+  // }
+
+  async getCustomer(slug: string): Promise<CustomersInterface> {
+    return await this.httpClient.get<CustomersInterface>(`${this.url}clientes?slug=${slug}`)
+      .toPromise()
+      .then(async (customer: any) => {
+        return await this.getClientesWordPressToModel(customer[0]);
+      });
+  }
+
+  getAllCustomers(): Promise<CustomersInterface[]> {
+    return this.httpClient.get<CustomersInterface[]>(`${this.url}clientes/?_embed`)
+      .toPromise()
+      .then((response: any) => {
+        return response;
+      });
+  }
+
+  async getClientesWordPressToModel(customer: any): Promise<CustomersInterface> {
+    return {
+      id: customer.id,
+      name: customer.title.rendered,
+      image: await this.utilService.getMedia(customer.logo)
+    };
   }
 
 }

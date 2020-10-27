@@ -20,7 +20,13 @@ export class EventosComponent implements OnInit {
   constructor(private title: Title, private meta: Meta, private eventsService: EventsService) {}
 
   ngOnInit() {
-    this.events = this.eventsService.getAllEvents();
+    this.eventsService.getAllEvents()
+      .then(value => {
+        this.events = [];
+        value.forEach(async (event) => {
+          this.events.push(await this.eventsService.getEventWordPressToModel(event));
+        });
+      });
     this.title.setTitle(this.data.name);
     this.meta.addTags([
       { name: 'twitter:card', content: 'summary' },

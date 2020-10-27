@@ -3,6 +3,7 @@ import { IService } from '../../models/IService';
 import { NormalizedUrlService } from '../normalizedUrl/normalized-url.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { UtilsService } from '../utils.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,30 +11,22 @@ import { environment } from '../../../../environments/environment';
 export class ServicesService {
 
   constructor(private normalizedUrl: NormalizedUrlService,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private utilService: UtilsService) {
   }
 
   private url = `${environment.url_api}`;
 
   async getServiceWordPressToModel(service: any): Promise<IService> {
     return {
-      bannerImg: await this.getMedia(service.parallax) as string,
-      category: 'quemada',
+      bannerImg: await this.utilService.getMedia(service.parallax) as string,
       description: service.content.rendered,
-      icon: await this.getMedia(service.icono) as string,
+      icon: await this.utilService.getMedia(service.icono) as string,
       id: service.id,
-      img: await this.getMedia(service.featured_media) as string,
+      img: await this.utilService.getMedia(service.featured_media) as string,
       title: service.title.rendered,
       slug: service.slug,
     };
-  }
-
-  async getMedia(id: any): Promise<string> {
-    return await this.httpClient.get<IService>(`${this.url}media/${id}`)
-      .toPromise()
-      .then((media: any) => {
-        return media.media_details.sizes.full.source_url;
-      });
   }
 
   getAllServices(): Promise<IService[]> {

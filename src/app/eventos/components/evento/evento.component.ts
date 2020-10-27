@@ -6,7 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-evento',
   templateUrl: './evento.component.html',
-  styleUrls: ['./evento.component.scss']
+  styleUrls: ['./evento.component.scss'],
 })
 export class EventoComponent implements OnInit {
 
@@ -15,14 +15,17 @@ export class EventoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private eventsService: EventsService,
-    private normalizedUrl: NormalizedUrlService
-   ) { }
+    private normalizedUrl: NormalizedUrlService,
+  ) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       const url = this.normalizedUrl.normalizedUrl(params.title);
-      this.event = this.eventsService.getEvent(url);
-     });
+      this.eventsService.getEvent(url).then(event => {
+        this.event = event;
+      });
+    });
 
   }
 

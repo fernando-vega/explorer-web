@@ -6,24 +6,20 @@
 </div>
 <section class="lg-container">
   <div class="row alquiler-page">
-    <aside class="col-xs-10 col-sm-3">
+    <aside class="col-xs-10 col-sm-3" *ngIf="categories">
       <h3>Filtros</h3>
-      <ul class="aside-menu">
-        <li><p>Potencia</p></li>
-        <li><p>Voltaje</p></li>
-        <li [ngClass]="{'open': status}">
-          <p (click)="open()">Cambiador</p>
-          <div class="aside-sub-menu">
-            <div class="item">Bajo Carga</div>
-            <div class="item active">Sin Carga</div>
-            <div class="item">Ninguno</div>
+      <ul class="aside-menu" *ngFor="let category of categories">
+        <li [ngClass]="{'open': category.statusClass}">
+          <p (click)="category.subcategories && category.subcategories.length > 0 ? open(category) : filter(category.id, undefined)">{{category.name}}</p>
+          <div *ngIf="category.subcategories">
+            <div class="aside-sub-menu" *ngFor="let subCategory of category.subcategories">
+              <div class="item" (click)="filter(subCategory.id, undefined)" >{{subCategory.name}}</div>
+            </div>
           </div>
         </li>
-        <li><p>Impedancia</p></li>
-        <li><p>Grupo de conxión</p></li>
       </ul>
-      <h3> <a> Disponible </a></h3>
-      <h3> <a> Ver todos </a></h3>
+      <h3><a (click)="filter(undefined, true)"> Disponible </a></h3>
+      <h3><a (click)="filter(undefined, undefined)"> Ver todos </a></h3>
     </aside>
     <div class="col-xs-12 col-sm-9 row">
       <div class="blue-title">
@@ -41,15 +37,15 @@
           <div class="item-alquiler-data row top-xs center-xs start-sm">
             <div class="col-xs-12 col-sm-4">
               <img
-                src="{{ product.mainIcon }}"
+                src="../../../../assets/images/icons/icon-transformador.svg"
                 alt="icon-transformador"
               />
             </div>
             <div class="col-xs-12 col-sm-8 text-data-item-alquiler">
               <h4>{{ product.title }}</h4>
-              <p>{{ product.features }}</p>
+              <p>{{ product.characteristicOne }}</p>
               <p>{{ product.type }}</p>
-              <a routerLink="{{product.title | normalizedUrl }}" class="btn btn-white">Ver</a>
+              <a routerLink="{{product.slug }}" class="btn btn-white">Ver</a>
             </div>
           </div>
         </div>
