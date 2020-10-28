@@ -10,25 +10,19 @@
       <!-- Tab 3 -->
       <input type="radio" name="tabset" id="tab3" aria-controls="tab-3">
       <label for="tab3">Plan Estratégico</label>
-      
-      <div class="tab-panels">
+
+      <div class="tab-panels" *ngIf="institutionalModel">
         <section id="tab-1" class="tab-panel">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium cupiditate eaque exercitationem ex voluptatum quo, pariatur ratione iste ad rerum tempora quis numquam similique in tempore, alias est excepturi.</p>
+          <p [innerHTML]="institutionalModel.mission"></p>
       </section>
         <section id="tab-2" class="tab-panel">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ipsa, doloribus dolorem similique iure, autem suscipit ducimus error ea, ab necessitatibus ex! Quidem ea voluptate eveniet ut eaque necessitatibus nihil?</p>
+          <p [innerHTML]="institutionalModel.vision"></p>
         </section>
         <section id="tab-3" class="tab-panel">
-          <p>Somos una empresa colombiana con más de 45 años de experiencia en el
-            sector eléctrico a nivel nacional e internacional brindando soluciones
-            eficientes en las áreas de mantenimiento, reparación, repotenciación y
-            rediseño de transformadores y autotransformadores con características
-            nominales hasta 100 MVA y 230 kV, cumpliendo con los estándares
-            nacionales e internacionales de calidad y servicio.</p>
-          <blockquote>Contamos con la mejor tecnología de la industria, la infraestructura necesaria y el personal idóneo para brindarle siempre el mejor servicio</blockquote>
+          <p [innerHTML]="institutionalModel.strategicPlan"></p>
         </section>
       </div>
-      
+
     </div>
   </div>
 </section>

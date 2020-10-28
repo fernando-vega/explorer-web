@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPageModel } from '../../../core/models/IPage.model';
+import { PagesService } from '../../../core/services/pages/pages.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  historyModel: IPageModel;
+  constructor(private pageServices: PagesService) { }
 
   ngOnInit() {
+    this.pageServices.getDefaultPage('historia')
+      .then((response) => {
+        this.historyModel = response;
+      });
   }
 
 }

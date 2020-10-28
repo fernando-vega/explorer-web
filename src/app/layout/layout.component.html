@@ -1,6 +1,13 @@
 <app-header></app-header>
 <app-hero *ngIf="isHome"></app-hero>
 <app-slider-hero *ngIf="!isHome"></app-slider-hero>
+<app-loader [load]="loader"></app-loader>
+<div class="banner-page">
+  <img *ngIf="!isHome && bannerImage"
+    src="{{bannerImage}}"
+    alt=""
+  />
+</div>
 
 <router-outlet></router-outlet>
 

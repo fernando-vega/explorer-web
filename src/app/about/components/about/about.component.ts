@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { PagesService } from '../../../core/services/pages/pages.service';
+import { IPageModel } from '../../../core/models/IPage.model';
 
 @Component({
   selector: 'app-about',
@@ -14,7 +16,9 @@ export class AboutComponent implements OnInit {
     image: 'avatar.png'
   };
 
-  constructor(private title: Title, private meta: Meta) {}
+  aboutModel: IPageModel;
+
+  constructor(private title: Title, private meta: Meta, private pageServices: PagesService) {}
 
   ngOnInit() {
     this.title.setTitle(this.data.name);
@@ -25,5 +29,9 @@ export class AboutComponent implements OnInit {
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image }
     ]);
+    this.pageServices.getDefaultPage('quienes-somos')
+      .then((response) => {
+        this.aboutModel = response;
+      });
   }
 }

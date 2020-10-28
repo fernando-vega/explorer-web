@@ -16,10 +16,6 @@ export class CustomersService {
   constructor(private httpClient: HttpClient, private utilService: UtilsService) {
   }
 
-  // getCustomer(id: string) {
-  //   return this.customers.find(item => id === item.id);
-  // }
-
   async getCustomer(slug: string): Promise<CustomersInterface> {
     return await this.httpClient.get<CustomersInterface>(`${this.url}clientes?slug=${slug}`)
       .toPromise()
@@ -29,9 +25,14 @@ export class CustomersService {
   }
 
   getAllCustomers(): Promise<CustomersInterface[]> {
+    const valueInStorage = this.utilService.getInfoLocalStorage('clientes');
+    if (valueInStorage != null) {
+      return Promise.resolve(valueInStorage);
+    }
     return this.httpClient.get<CustomersInterface[]>(`${this.url}clientes/?_embed`)
       .toPromise()
       .then((response: any) => {
+        this.utilService.saveInStorage('clientes', response);
         return response;
       });
   }

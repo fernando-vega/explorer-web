@@ -38,31 +38,36 @@ export class ProductService {
         {
           id: '1',
           icon: '../../../../assets/images/icons/icon-warning-machine3.svg',
-          text: product.caracteristica_1
+          text: product.caracteristica_1,
         },
         {
           id: '2',
           icon: '../../../../assets/images/icons/icon-meter.svg',
-          text: product.caracteristica_2
+          text: product.caracteristica_2,
         },
         {
           id: '3',
           icon: '../../../../assets/images/icons/icon-ray-yellow.svg',
-          text: product.caracteristica_3
+          text: product.caracteristica_3,
         },
         {
           id: '4',
           icon: '../../../../assets/images/icons/icon-olct.svg',
-          text: product.caracteristica_4
-        }
-      ]
+          text: product.caracteristica_4,
+        },
+      ],
     };
   }
 
   getAllProducts(): Promise<ProductsInterface[]> {
+    const valueInStorage = this.utilService.getInfoLocalStorage('producto');
+    if (valueInStorage != null) {
+      return Promise.resolve(valueInStorage);
+    }
     return this.httpClient.get<ProductsInterface[]>(`${this.url}producto/?_embed`)
       .toPromise()
       .then((response: any) => {
+        this.utilService.saveInStorage('producto', response);
         return response;
       });
   }

@@ -10,6 +10,7 @@ import { EventsService } from './services/events/events.service';
 import { UtilsService } from './services/utils.service';
 import { PagesService } from './services/pages/pages.service';
 import { CategoriesService } from './services/categories/categories.service';
+import { BannerService } from './services/banner/banner.service';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CategoriesService } from './services/categories/categories.service';
     EventsService,
     UtilsService,
     PagesService,
-    CategoriesService
+    CategoriesService,
+    BannerService
   ]
 })
 export class CoreModule { }

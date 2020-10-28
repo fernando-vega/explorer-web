@@ -19,6 +19,8 @@ import { FinalTextPipe } from './pipes/final-text.pipe';
 import { NormalizedUrlPipe } from './pipes/normalized-url.pipe';
 
 import { from } from 'rxjs';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -34,7 +36,9 @@ import { from } from 'rxjs';
     FirstWordPipe,
     FinalTextPipe,
     NormalizedUrlPipe,
-    BackButtonComponent
+    BackButtonComponent,
+    NotFoundComponent,
+    LoaderComponent
   ],
   exports: [
     CardServiceComponent,
@@ -47,7 +51,9 @@ import { from } from 'rxjs';
     FinalTextPipe,
     FirstWordPipe,
     NormalizedUrlPipe,
-    BackButtonComponent
+    BackButtonComponent,
+    NotFoundComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,

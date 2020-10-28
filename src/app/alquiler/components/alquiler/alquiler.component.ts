@@ -3,7 +3,6 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ProductService } from '../../../core/services/product/product.service';
 import { CategoriesService } from '../../../core/services/categories/categories.service';
 import { ICategoryModel } from '../../../core/models/ICategory.model';
-import { ProductsInterface } from '../../../core/models/products.interface';
 
 @Component({
   selector: 'app-alquiler',
@@ -20,6 +19,7 @@ export class AlquilerComponent implements OnInit {
   status = false;
   products;
   categories: ICategoryModel[];
+  loadServices = true;
 
   constructor(
     private title: Title,
@@ -43,6 +43,7 @@ export class AlquilerComponent implements OnInit {
   }
 
   getProducts(filterId: number | undefined, available: boolean | undefined) {
+    this.loadServices = true;
     this.productsService.getAllProducts()
       .then(value => {
         this.products = [];
@@ -53,9 +54,10 @@ export class AlquilerComponent implements OnInit {
           } else if ((filterId && this.filterByChildren(filterId, product)) || (!filterId && !available)) {
             this.products.push(await this.productsService.getProductWordPressToModel(product));
           }
-
         });
-      });
+      }).finally(() => {
+      this.loadServices = false;
+    });
   }
 
   filterByChildren(parent: number, product: any): boolean {

@@ -30,9 +30,14 @@ export class ServicesService {
   }
 
   getAllServices(): Promise<IService[]> {
+    const valueInStorage = this.utilService.getInfoLocalStorage('servicios');
+    if (valueInStorage != null) {
+      return Promise.resolve(valueInStorage);
+    }
     return this.httpClient.get<IService[]>(`${this.url}servicios/?_embed`)
       .toPromise()
       .then((response: any) => {
+        this.utilService.saveInStorage('servicios', response);
         return response;
       });
   }

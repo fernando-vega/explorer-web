@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IInstitutionalModel } from '../../../core/models/IInstitutional.model';
+import { PagesService } from '../../../core/services/pages/pages.service';
 
 @Component({
   selector: 'app-institutional',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstitutionalComponent implements OnInit {
 
-  constructor() { }
+  institutionalModel: IInstitutionalModel;
+  constructor(private pageServices: PagesService) { }
 
   ngOnInit() {
+    this.pageServices.getInstitutionalPage()
+      .then((response) => {
+        this.institutionalModel = response;
+      });
   }
 
 }

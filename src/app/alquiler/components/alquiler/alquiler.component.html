@@ -1,9 +1,4 @@
-<div class="banner-page">
-  <img
-    src="../../../../assets/images/banners/banner-institutional-1.jpg"
-    alt=""
-  />
-</div>
+<app-loader [load]="loadServices"></app-loader>
 <section class="lg-container">
   <div class="row alquiler-page">
     <aside class="col-xs-10 col-sm-3" *ngIf="categories">
@@ -26,6 +21,7 @@
         <h5>Transformadores en Alquiler</h5>
       </div>
       <div class="col-xs-12 content-items-alquiler row">
+        <app-not-found [found]="products && products.length > 0"></app-not-found>
         <div class="col-xs-12 col-sm-6 col-lg-4 item-alquiler" *ngFor="let product of products">
           <div class="item-alquiler-img">
             <img

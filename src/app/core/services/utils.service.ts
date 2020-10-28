@@ -10,14 +10,20 @@ export class UtilsService {
 
   private url = `${environment.url_api}`;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
-  async getMedia(id: any): Promise<string> {
-    return await this.httpClient.get<IService>(`${this.url}media/${id}`)
-      .toPromise()
-      .then((media: any) => {
-        return media.media_details.sizes.full.source_url;
-      });
+  async getMedia(id: any, imageSize: string = 'full'): Promise<string> {
+    if (id && (id as string) !== '') {
+      return await this.httpClient.get<IService>(`${this.url}media/${id}`)
+        .toPromise()
+        .then((media: any) => {
+          return media.media_details.sizes[imageSize].source_url;
+        });
+    } else {
+      return '';
+    }
+
   }
 
   async getMediaFile(id: any): Promise<string> {
@@ -30,6 +36,18 @@ export class UtilsService {
 
   diffTimeInHours(startDate: Date, endDate: Date): number {
     return (endDate.getTime() - startDate.getTime()) / (1000 * 3600);
-
   }
+
+  saveInStorage(key: string, object: any) {
+    localStorage.setItem(key, JSON.stringify(object));
+  }
+
+  getInfoLocalStorage(key: string) {
+    const object: string = localStorage.getItem(key);
+    if (object) {
+      return JSON.parse(object);
+    }
+    return null;
+  }
+
 }

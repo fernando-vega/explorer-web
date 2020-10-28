@@ -1,24 +1,19 @@
-<section class="container">
-  <div class="page">
-    <h2>
-      Industrias Explorer nace en el año de 1962 en la ciudad de Duitama, Boyacá, Colombia, como una microempresa dedicada a la reparación de motores eléctricos para varias industrias de la región.
-    </h2>
-    <p>
-      Dados los nuevos requerimientos por parte de las empresas cliente, como Acerías Paz del Río, Bavaria, Cementos Boyacá, Cementos Paz del Río, Siderúrgica de Boyacá y Maguncia, entre otras. Entre 1965 y 1985 se hizo necesaria la ampliación y adecuación de instalaciones para ofrecer nuevos servicios como reparación de motores de potencia y tensión de mayores exigencias, reparación de transformadores de baja tensión, manufactura y ensamble de celdas, tableros eléctricos, centros de control de procesos industriales, montajes eléctricos, suministro directo de equipos, material eléctrico.
-    </p>
-  </div>
-</section>
-<div class="banner-parallax" [ngStyle]="{background: 'url(../../../../assets/images/parallax/historia-1.png)'}"></div>
-<section class="container">
-  <div class="page">
-    <p>
-      En 1990, se inicia la construcción de la sede actual para anticiparse y atender los crecientes y exigentes requerimientos del mercado, obra culminada en 1994. En este año se repara con total éxito el transformador para horno eléctrico tipo acorazado Shell de 20MVA15kV propiedad de Siderúrgica de Boyacá, S.A. proyecto de ingeniería que se constituiría en el preámbulo para la reparación y mantenimiento de transformadores de alta potencia. Gracias a la excelente labor realizada en la ejecución de los servicios, en 1995, Industrias Explorer recibe el Premio Nacional al Desarrollo Empresarial, otorgado por la Organización para el Desarrollo Empresarial OPADE y la Corporación para el Desarrollo Humano y Empresarial CODHE. Desde este mismo año, se han realizados trabajos de gran importancia y trascendencia para el sector eléctrico, siderúrgico y cementero del país, constituyendo a la empresa como líder en la prestación de estos servicios. A la par con el crecimiento técnico y en la búsqueda del continuo mejoramiento de los servicios, en el año de 1996 se inicia el diseño e implementación de un sistema de calidad para asegurar la satisfacción total de sus clientes internos y externos. Este sistema de calidad sería la base para obtener la Certificación ISO 9002 versión 94 otorgado por el organismo internacional Bureau Veritas Quality International para el mantenimiento y reparación de transformadores de potencia de media y alta tensión y de distribución.
-    </p>
-  </div>
-</section>
-<div class="banner-parallax" [ngStyle]="{background: 'url(../../../../assets/images/parallax/historia-2.png)'}"></div>
-<section class="container">
-  <div class="page">
-    <p>Durante el año 2003, el sistema de calidad fue ajustado por procesos, buscando mayor satisfacción en las necesidades y expectativas de nuestros clientes. Como reconocimiento a su labor el sistema fue certificado nuevamente, esta vez bajo los lineamientos ISO 9001 versión 2000.</p><p>En el año 2005 se obtiene la recertificación del sistema de gestión de calidad y en el 2009 see obtiene la certificación del Sistema de Gestión Integral en Calidad, Medio Ambiente, Seguridad y Salud Ocupacional bajo los requisitos de las normas ISO 9001:2000, ISO 14001:2004 y OHSAS 18001:2007 otorgada por el organismo internacional Bureau Veritas Certification.</p>
-  </div>
-</section>
+<app-loader [load]="!historyModel"></app-loader>
+<div *ngIf="historyModel">
+  <section class="container" >
+    <div class="page" [innerHTML]="historyModel.mainContent"></div>
+  </section>
+  <div class="banner-parallax" [ngStyle]="{background: 'url('+historyModel.imageParallax + ')'}"></div>
+  <section class="container">
+    <div class="page">
+      <p [innerHTML]="historyModel.content1"></p>
+    </div>
+  </section>
+  <div class="banner-parallax" *ngIf="historyModel.imageParallax2"
+       [ngStyle]="{background: 'url('+historyModel.imageParallax2 + ')'}"></div>
+  <section class="container" *ngIf="historyModel.content2">
+    <div class="page">
+      <p [innerHTML]="historyModel.content2"></p>
+    </div>
+  </section>
+</div>

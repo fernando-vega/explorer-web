@@ -13,10 +13,15 @@ export class CategoriesService {
 
   private url = `${environment.url_api}`;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private utilsService: UtilsService) {
   }
 
   async getAllCategories(): Promise<ICategoryModel[]> {
+
+    const valueInStorage = this.utilsService.getInfoLocalStorage('categories');
+    if (valueInStorage != null) {
+      return Promise.resolve(valueInStorage);
+    }
     return await this.httpClient.get<ICategoryModel[]>(`${this.url}categories`)
       .toPromise()
       .then(async (response: any) => {
@@ -28,7 +33,7 @@ export class CategoriesService {
             categories.push(this.getWordPressCategory(response, category));
           }
         });
-
+        this.utilsService.saveInStorage('categories', categories);
         return categories;
       });
   }
@@ -37,7 +42,7 @@ export class CategoriesService {
     const categoryResponse: ICategoryModel = {
       id: category.id,
       name: category.name,
-      statusClass: false
+      statusClass: false,
     };
 
     const parent: number = category.id;
