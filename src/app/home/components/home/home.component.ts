@@ -45,12 +45,12 @@ export class HomeComponent implements OnInit {
     ]);
     this.getExperiencePage();
   }
-
+  
   getExperiencePage() {
     this.pageServices.getExperiencePage()
-      .then((experiencePage: IExperiencePage) => {
-        this.experiencePage = experiencePage;
-      });
+    .then((experiencePage: IExperiencePage) => {
+      this.experiencePage = experiencePage;
+    });
   }
 
 }

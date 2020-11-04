@@ -62,7 +62,7 @@ export class PagesService {
     return {
       content: page.content.rendered,
       image: await this.utilService.getMedia(page.featured_media as number) as string,
-      title: page.title.rendered,
+      title: page.titulo,
       years: page.anos as number,
     };
   }

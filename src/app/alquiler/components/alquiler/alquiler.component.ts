@@ -69,7 +69,7 @@ export class AlquilerComponent implements OnInit {
         value.subcategories.forEach(subcategory => {
           subcategories.push(subcategory.id);
         });
-      }
+      } 
     });
 
     return product.categories.includes(parent) || product.categories.some((element) => {

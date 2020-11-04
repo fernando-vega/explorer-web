@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url_api: 'http://explorer.fernandovega.xyz/wp-json/wp/v2/'
+  url_api: 'https://admin.industriasexplorer.com/wp-json/wp/v2/'
 };
 
 /*

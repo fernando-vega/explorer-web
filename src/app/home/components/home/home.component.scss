@@ -26,29 +26,29 @@
   }
   .experience-years {
     .experience-years-image{
-      max-height: 250px;
+      max-height: 358px;
       position: relative;
       margin-bottom: 50px;
-      max-width: 300px;
+      max-width: 400px;
       &::before{
         border: 3px solid $blue;
         content: '';
         height: 100%;
-        left: 25%;
+        left: 12%;
         position: absolute;
         transition: all .3s;
         top: 18%;
-        width: 85%;
+        width: 100%;
         z-index: -1;
       }
 
       img{
         height: auto;
-        width: 300px;
+        width: 400px;
       }
     }
     .experience-years-text{
-      margin-top: 15px;
+      margin-top: 50px;
       .years {
         align-items: center;
         border: 3px solid $blue;
@@ -64,31 +64,31 @@
       h5{
         padding-left: 15px;
         line-height: 1.2em;
-        font-size: 16px;
+        font-size: 20px;
       }
       .experience-year-description{
-        margin: 20px 0;
+        margin: 14px 0;
+        text-align: justify;
         p {
           font-size: 13px;
           line-height: 1.2em;
-          text-align: justify;
         }
       }
     }
-    @include for-tablet-portrait-up {
+    @include for-tablet-landscape-up {
       margin-left: 50px;
       .experience-years-text{
-        margin-left: 35px;
+        margin-left: 60px;
+        margin-top: 65px;
         .years{
           h5{
             padding: 10px;
           }
         }
-        .experience-year-description{
-          padding-left: 20px;
-          p{
-            text-align: left;
-          }
+        .experience-year-description {
+          padding-left: 15px;
+          text-align: justify;
+          font-size: 15px;
         }
       }
     }

@@ -47,15 +47,15 @@
         </div>
         <div class="col-xs-10 col-md-4 experience-years-text">
           <div class="row middle-xs center-xs start-md">
-            <div class="col-xs-6 col-md-4 row end-xs center-md">
+            <div class="col-xs-2 col-md-4 row end-xs center-md">
               <div class="years"> {{experiencePage.years}} </div>
             </div>
             <div class="col-xs-6 col-md-8 row start-xs">
-              <h5 [innerHTML]="experiencePage.title"></h5>
+              <h5>{{experiencePage.title}}</h5>
             </div>
           </div>
           <div class="experience-year-description row start-xs">
-            <p [innerHTML]="experiencePage.content"></p>
+            <div [innerHTML]="experiencePage.content"></div>
             <a class="btn btn-white" routerLink="/historia">Leer más</a>
           </div>
         </div>
