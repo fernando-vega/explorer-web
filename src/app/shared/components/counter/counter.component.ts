@@ -10,7 +10,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 })
 export class CounterComponent implements OnInit {
 
-  @ViewChild('counter', { static: false }) item: ElementRef;
+  @ViewChild('counter') item: ElementRef;
   componentDestroyed$: Subject<boolean> = new Subject();
 
   scores: number[] = [0, 0, 0, 0, 0];
