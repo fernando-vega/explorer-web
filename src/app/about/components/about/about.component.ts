@@ -23,8 +23,8 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle(this.data.name);
     this.meta.addTags([
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'og:url', content: '/nosotros' },
+      { name: 'twitter:card', content: 'nosotros' },
+      { name: 'og:url', content: '/#/nosotros' },
       { name: 'og:title', content: this.data.name },
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image }

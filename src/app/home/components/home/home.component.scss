@@ -10,16 +10,21 @@
     .item-service{
       padding: 15px;
       max-width: 250px;
-      figure{
-        img{
-          max-height: 80px;
-          width: auto;
-        }
-        figcaption {
-          margin-top: 15px;
-          font-size: 14px;
-          font-weight: 700;
-          text-transform: uppercase;
+      a {
+        display: block;
+        color: $black2;
+        text-transform: uppercase;
+        figure{
+          img{
+            max-height: 80px;
+            width: auto;
+          }
+          figcaption {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
         }
       }
     }

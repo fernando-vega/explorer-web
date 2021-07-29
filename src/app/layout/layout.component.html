@@ -2,8 +2,8 @@
 <app-hero *ngIf="isHome"></app-hero>
 <app-slider-hero *ngIf="!isHome"></app-slider-hero>
 <app-loader [load]="loader"></app-loader>
-<div class="banner-page">
-  <img *ngIf="!isHome && bannerImage"
+<div class="banner-page" *ngIf="!isHome && bannerImage">
+  <img
     src="{{bannerImage}}"
     alt=""
   />

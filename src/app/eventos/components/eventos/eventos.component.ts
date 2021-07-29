@@ -29,8 +29,8 @@ export class EventosComponent implements OnInit {
       });
     this.title.setTitle(this.data.name);
     this.meta.addTags([
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'og:url', content: '/eventos' },
+      { name: 'twitter:card', content: 'eventos' },
+      { name: 'og:url', content: '/#/eventos' },
       { name: 'og:title', content: this.data.name },
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image }

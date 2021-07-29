@@ -30,8 +30,8 @@ export class ClientesComponent implements OnInit {
 
     this.title.setTitle(this.data.name);
     this.meta.addTags([
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'og:url', content: '/Clientes' },
+      { name: 'twitter:card', content: 'clientes' },
+      { name: 'og:url', content: '/#/clientes' },
       { name: 'og:title', content: this.data.name },
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image },

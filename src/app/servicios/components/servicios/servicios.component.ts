@@ -35,8 +35,8 @@ export class ServiciosComponent implements OnInit {
 
     this.title.setTitle(this.data.name);
     this.meta.addTags([
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'og:url', content: '/servicios' },
+      { name: 'twitter:card', content: 'servicios' },
+      { name: 'og:url', content: '/#/servicios' },
       { name: 'og:title', content: this.data.name },
       { name: 'og:description', content: this.data.bio },
       { name: 'og:image', content: this.data.image },

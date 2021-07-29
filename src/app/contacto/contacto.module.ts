@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ContactoRoutingModule } from './contacto-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ContactoRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
+
 export class ContactoModule { }

@@ -1,3 +1,4 @@
+<app-loader [load]="show"></app-loader>
 <div class="container">
   <div class="page page-contact">
     <div class="blue-title">
@@ -5,28 +6,28 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 content-form">
-        <form class="row">
+        <form class="row" [formGroup]="form" (ngSubmit)="save($event)">
           <div class="col-xs-12 col-sm-6 form-group">
-            <input matInput placeholder="Nombre" #nombre maxlength="80" name="Name" required>
+            <input placeholder="Nombre" name="Name" formControlName="name">
             <span></span>
           </div>
           <div class="col-xs-12 col-sm-5 form-group">
-            <input matInput placeholder="Teléfono" #tel type="tel" name="Phone" maxlength="16">
+            <input placeholder="Teléfono" type="tel" name="Phone" formControlName="phone">
             <span></span>
           </div>
           <div class="col-xs-12 form-group">
-            <input matInput placeholder="Correo" type="email" name="Email" required>
+            <input placeholder="Correo" type="email" name="Email" formControlName="email">
             <span></span>
           </div>
           <div class="col-xs-12 form-group">
-            <textarea matInput placeholder="Mensaje" #msn maxlength="300" name="Msn" cols="25"></textarea>
+            <textarea placeholder="Mensaje" name="Msn" cols="25" formControlName="msn"></textarea>
             <span></span>
           </div>
           <div class="col-xs-12">
             <br>
-            <a class="btn btn-white">Enviar</a>
+            <button class="btn btn-white" type="submit" [disabled]="!form.valid">Enviar</button>
           </div>
-
+          <h4 class="message-send" *ngIf="showMessage">Mensaje enviado correctamente</h4>
        </form>
       </div>
       <div class="col-xs-12 col-sm-4">

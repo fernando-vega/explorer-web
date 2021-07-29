@@ -126,9 +126,10 @@ p {
 }
 
 .btn {
+  cursor: pointer;
   border: 1px solid $blue;
   margin-top: 20px !important;
-  padding: 0 15px !important;
+  padding: 7px 15px 5px !important;
   position: relative;
   transition: all .3s;
   font-size: 16px;
@@ -156,6 +157,7 @@ p {
   &:hover{
     &.btn-white{
       color: #ffffff;
+      background: transparent;
       &::before{
         background-color: $blue;
         width: 100%;
@@ -164,6 +166,7 @@ p {
     &.btn-blue{
       color: $blue;
       border-color: #ffffff;
+      background: transparent;
       z-index: 1;
       &::before{
         background-color: #ffffff;
@@ -173,10 +176,21 @@ p {
     &.btn-blue-2{
       color: $blue3;
       border-color: #ffffff;
+      background: transparent;
       z-index: 1;
       &::before{
         background-color: #ffffff;
         width: 100%;
+      }
+    }
+  }
+  &:disabled {
+    border: gray;
+    color: gray;
+    &:hover {
+      color: gray;
+      &::before{
+        width: 0%;
       }
     }
   }
