@@ -10,7 +10,7 @@
           <div class="text-card">
             <h5>{{ servicio.title | firstWord }}</h5>
             <h5>{{ servicio.title | finalText }}</h5>
-            <a routerLink="{{ servicio.title | normalizedUrl }}" class="btn btn-blue">Ver más</a>
+            <a routerLink="/servicios/{{ servicio.slug }}" class="btn btn-blue">Ver más</a>
           </div>
         </div>
       </div>

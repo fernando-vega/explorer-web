@@ -38,20 +38,20 @@ export class SliderHeroComponent implements OnInit {
 
   images = [
     {
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/2.jpg',
-      page: '/historia'
-    },
-    {
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/1.jpg',
-      page: '/historia'
-    },
-    {
-      image: 'https://freakyjolly.com/demo/jquery/PreloadJS/images/5.jpg',
-      page: '/historia'
-    },
-    {
       image: '../../../../assets/images/banners/banner-quienes-somos-1.png',
       page: '/historia'
+    },
+    {
+      image: '../../../../assets/images/banners/counter-background.png',
+      page: '/historia'
+    },
+    {
+      image: '../../../../assets/images/banners/banner-alquiler.jpg',
+      page: '/historia'
+    },
+    {
+      image: '../../../../assets/images/banners/banner-reparacion-1.png',
+      page: '/quienes-somos'
     },
     {
       image: '../../../../assets/images/banners/banner-quienes-somos-1.png',
@@ -59,7 +59,11 @@ export class SliderHeroComponent implements OnInit {
     },
     {
       image: '../../../../assets/images/banners/banner-institutional-1.jpg',
-      page: '/institucional'
+      page: '/plan-estrategico'
+    },
+    {
+      image: '../../../../assets/images/banners/banner-reparacion-1.png',
+      page: '/plan-estrategico'
     },
     {
       image: '../../../../assets/images/banners/banner-institutional-1.jpg',

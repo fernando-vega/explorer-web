@@ -31,15 +31,15 @@ export class PagesService {
   }
 
   async getInstitutionalPage(): Promise<IInstitutionalModel> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('institucional');
+    const valueInStorage = this.utilService.getInfoLocalStorage('plan-estrategico');
     if (valueInStorage != null) {
       return Promise.resolve(valueInStorage);
     }
-    return await this.httpClient.get<IInstitutionalModel>(`${this.url}institucional`)
+    return await this.httpClient.get<IInstitutionalModel>(`${this.url}plan-estrategico`)
       .toPromise()
       .then(async (page: any) => {
         const response = await this.getInstitutionalModelWordPressToModel(page[0]);
-        this.utilService.saveInStorage('institucional', response);
+        this.utilService.saveInStorage('plan-estrategico', response);
         return response;
       });
   }
@@ -82,7 +82,7 @@ export class PagesService {
   async getInstitutionalModelWordPressToModel(page: any): Promise<IInstitutionalModel> {
     return {
       mission: page.mision,
-      strategicPlan: page.plan_estrategico,
+      corporateValues: page.valores_corporativos,
       title: page.title.rendered,
       vision: page.vision,
     };

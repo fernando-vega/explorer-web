@@ -9,7 +9,7 @@
       <label for="tab2">Visión</label>
       <!-- Tab 3 -->
       <input type="radio" name="tabset" id="tab3" aria-controls="tab-3">
-      <label for="tab3">Plan Estratégico</label>
+      <label for="tab3">Valores corporativos</label>
 
       <div class="tab-panels" *ngIf="institutionalModel">
         <section id="tab-1" class="tab-panel">
@@ -19,7 +19,7 @@
           <p [innerHTML]="institutionalModel.vision"></p>
         </section>
         <section id="tab-3" class="tab-panel">
-          <p [innerHTML]="institutionalModel.strategicPlan"></p>
+          <p [innerHTML]="institutionalModel.corporateValues"></p>
         </section>
       </div>
 

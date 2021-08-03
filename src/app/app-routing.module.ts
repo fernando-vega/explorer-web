@@ -40,8 +40,8 @@ const routes: Routes = [
         loadChildren: () => import('./about/history.module').then(m => m.HistoryModule)
       },
       {
-        path: 'institucional',
-        data: {title: 'Explorer | Institucional'},
+        path: 'plan-estrategico',
+        data: {title: 'Explorer | Plan Estratégico'},
         loadChildren: () => import('./about/institutional.module').then(m => m.InstitutionalModule)
       },
       {

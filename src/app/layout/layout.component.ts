@@ -12,7 +12,7 @@ export class LayoutComponent implements OnInit {
   isHome: boolean;
   loader = true;
   bannerImage: string;
-  excludePages = ['/quienes-somos', '/historia', '/institucional', '/certificaciones'];
+  excludePages = ['/quienes-somos', '/historia', '/plan-estrategico', '/certificaciones'];
 
   constructor(private router: Router, private bannerService: BannerService) {
     router.events.subscribe((event) => {
