@@ -31,12 +31,14 @@ export class PostComponent implements OnInit {
   fetchPost(slug: string) {
     this.postsService.getPost(slug)
     .subscribe(data => {
-      this.post = data[0];
-      const urlImg = this.post._links['wp:featuredmedia'][0].href;
-      const dataImg = this.http.get(urlImg);
-      dataImg.subscribe(imgData => {
-        this.image = imgData;
-      });
+      if (data) {
+        this.post = data[0];
+        const urlImg = this.post._links['wp:featuredmedia'][0].href;
+        const dataImg = this.http.get(urlImg);
+        dataImg.subscribe(imgData => {
+          this.image = imgData;
+        });
+      }
     });
   }
 

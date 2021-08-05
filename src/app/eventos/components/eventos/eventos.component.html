@@ -8,7 +8,7 @@
         <div class="col-xs-12 item-event" *ngFor="let event of events">
           <div class="row center-xs start-sm between-sm">
             <div class="col-xs-12 col-sm-3">
-              <div class="image-content">
+              <div *ngIf="event.image" class="image-content">
                 <img src="{{ event.image }}" alt="{{ event.title }}">
               </div>
             </div>

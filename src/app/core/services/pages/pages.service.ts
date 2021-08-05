@@ -17,43 +17,28 @@ export class PagesService {
   private url = `${environment.url_api}`;
 
   async getExperiencePage(): Promise<IExperiencePage> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('pages?slug=experiencia');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return await this.httpClient.get<IExperiencePage>(`${this.url}pages?slug=experiencia`)
       .toPromise()
       .then(async (page: any) => {
         const response = await this.getPageExperienceWordPressToModel(page[0]);
-        this.utilService.saveInStorage('pages?slug=experiencia', response);
         return response;
       });
   }
 
   async getInstitutionalPage(): Promise<IInstitutionalModel> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('plan-estrategico');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return await this.httpClient.get<IInstitutionalModel>(`${this.url}plan-estrategico`)
       .toPromise()
       .then(async (page: any) => {
         const response = await this.getInstitutionalModelWordPressToModel(page[0]);
-        this.utilService.saveInStorage('plan-estrategico', response);
         return response;
       });
   }
 
   async getDefaultPage(slug: string): Promise<IPageModel> {
-    const valueInStorage = this.utilService.getInfoLocalStorage(`pages?slug=${slug}`);
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return await this.httpClient.get<IPageModel>(`${this.url}pages?slug=${slug}`)
       .toPromise()
       .then(async (page: any) => {
         const response = await this.getPageModelWordPressToModel(page[0]);
-        this.utilService.saveInStorage(`pages?slug=${slug}`, response);
         return response;
       });
   }

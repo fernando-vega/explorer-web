@@ -5,7 +5,7 @@
   <section class="content-customers">
     <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding', 'owl-slide-customers']">
       <div class="item" *ngFor="let image of images;let i= index">
-        <img class="slide-image" src="{{ image.image  }}" >
+        <img *ngIf="image.image" class="slide-image" src="{{ image.image  }}" >
       </div>
     </owl-carousel>
   </section>

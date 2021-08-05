@@ -30,14 +30,9 @@ export class EventsService {
   }
 
   getAllEvents(): Promise<EventsInterface[]> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('eventos');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return this.httpClient.get<EventsInterface[]>(`${this.url}eventos/?_embed`)
       .toPromise()
       .then((response: any) => {
-        this.utilService.saveInStorage('eventos', response);
         return response;
       });
   }

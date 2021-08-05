@@ -1,24 +1,34 @@
 @import '../../../../vars';
-:host{
-  app-slider-hero{
+
+:host {
+  app-slider-hero {
     display: none;
   }
-  .items-services, .services, .experience-years,.gallery-home, .countdown{
+
+  .items-services,
+  .services,
+  .experience-years,
+  .gallery-home,
+  .countdown {
     padding: 50px 0;
   }
-  .items-services{
-    .item-service{
+
+  .items-services {
+    .item-service {
       padding: 15px;
       max-width: 250px;
+
       a {
         display: block;
         color: $black2;
         text-transform: uppercase;
-        figure{
-          img{
+
+        figure {
+          img {
             max-height: 80px;
             width: auto;
           }
+
           figcaption {
             margin-top: 15px;
             font-size: 14px;
@@ -29,13 +39,15 @@
       }
     }
   }
+
   .experience-years {
-    .experience-years-image{
+    .experience-years-image {
       max-height: 358px;
       position: relative;
       margin-bottom: 50px;
       max-width: 400px;
-      &::before{
+
+      &::before {
         border: 3px solid $blue;
         content: '';
         height: 100%;
@@ -47,13 +59,15 @@
         z-index: -1;
       }
 
-      img{
+      img {
         height: auto;
         width: 400px;
       }
     }
-    .experience-years-text{
+
+    .experience-years-text {
       margin-top: 50px;
+
       .years {
         align-items: center;
         border: 3px solid $blue;
@@ -66,30 +80,37 @@
         padding: 10px 5px 5px;
         width: 85px;
       }
-      h5{
+
+      h5 {
         padding-left: 15px;
         line-height: 1.2em;
         font-size: 20px;
       }
-      .experience-year-description{
+
+      .experience-year-description {
         margin: 14px 0;
         text-align: justify;
+
         p {
           font-size: 13px;
           line-height: 1.2em;
         }
       }
     }
+
     @include for-tablet-landscape-up {
       margin-left: 50px;
-      .experience-years-text{
+
+      .experience-years-text {
         margin-left: 60px;
         margin-top: 65px;
-        .years{
-          h5{
+
+        .years {
+          h5 {
             padding: 10px;
           }
         }
+
         .experience-year-description {
           padding-left: 15px;
           text-align: justify;
@@ -98,12 +119,14 @@
       }
     }
   }
-  .gallery-home{
-    .gallery-home-item{
+
+  .gallery-home {
+    .gallery-home-item {
       .gallery-home-item-img {
         max-height: 300px;
         position: relative;
-        &::before{
+
+        &::before {
           background-color: $blue;
           content: '';
           height: 0;
@@ -114,7 +137,8 @@
           width: 100%;
           transition: all .3s;
         }
-        img{
+
+        img {
           height: auto;
           object-fit: cover;
           width: 100%;
@@ -122,54 +146,67 @@
           min-height: 300px;
         }
       }
-      .gallery-home-item-text{
+
+      .gallery-home-item-text {
         background-color: $blue;
         color: #ffffff;
         height: 300px;
         padding: 30px;
         width: 100%;
-        h4{
+
+        h4 {
           font-size: 20px;
           font-weight: 300;
           line-height: 1em;
           padding-bottom: 10px;
           text-transform: uppercase;
         }
+
         .content-text {
           margin-bottom: 15px;
-          p{
+          overflow-y: hidden;
+          max-height: 80px;
+
+          p {
             font-size: 12px;
+            
           }
         }
       }
+
       &:hover {
-        .gallery-home-item-img{
-          &::before{
+        .gallery-home-item-img {
+          &::before {
             height: 100%;
             opacity: .6;
           }
         }
       }
-      &:nth-child(3n - 1){
-        .gallery-home-item-img{
+
+      &:nth-child(3n - 1) {
+        .gallery-home-item-img {
           &::before {
             top: 0;
             background-color: $blue3;
           }
         }
-        .gallery-home-item-text{
+
+        .gallery-home-item-text {
           background-color: $blue3;
         }
       }
+
       @include for-desktop-up {
         .gallery-home-item-img {
           max-height: 250px;
+
           img {
             max-height: 250px;
             min-height: 250px;
           }
         }
-        .gallery-home-item-text{
+
+        .gallery-home-item-text {
           height: 250px;
         }
       }
@@ -182,28 +219,33 @@
     padding: 30px;
     width: calc(100% - 60px);
 
-    .text-title-services{
+    .text-title-services {
       padding-top: 15px;
       padding-left: 15px;
-      .blue-title{
+
+      .blue-title {
         margin-left: 0;
         margin-bottom: 0;
       }
+
       h4 {
         font-size: 20px;
         font-weight: 500;
         line-height: 24px;
         padding-top: 10px;
       }
+
       @include for-tablet-portrait-up {
         padding-left: 20%;
         width: 60%;
+
         .btn-ribbon {
           margin-top: 50px;
         }
       }
     }
-    .content-card-service{
+
+    .content-card-service {
       margin: 30px 0;
     }
   }

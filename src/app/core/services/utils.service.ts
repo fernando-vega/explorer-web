@@ -38,16 +38,4 @@ export class UtilsService {
     return (endDate.getTime() - startDate.getTime()) / (1000 * 3600);
   }
 
-  saveInStorage(key: string, object: any) {
-    localStorage.setItem(key, JSON.stringify(object));
-  }
-
-  getInfoLocalStorage(key: string) {
-    const object: string = localStorage.getItem(key);
-    if (object) {
-      return JSON.parse(object);
-    }
-    return null;
-  }
-
 }

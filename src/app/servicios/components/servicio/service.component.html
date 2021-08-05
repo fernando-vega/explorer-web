@@ -6,7 +6,7 @@
     <div [innerHTML]="service.description"></div>
   </div>
 </section>
-<div *ngIf="service"
+<div *ngIf="service.bannerImg"
   class="banner-parallax"
   [ngStyle]="{ background: 'url(' + service.bannerImg + ')' }"
 ></div>

@@ -4,7 +4,7 @@
     <div class="row center-xs top-xs counter-content-items">
       <div class="col-xs-12 col-sm-6 col-md-2 counter-item" *ngFor="let item of itemCounter; index as i;">
         <div class="counter-content-img">
-          <img src="{{ item.img }}" alt="{{ item.text }}">
+          <img *ngIf="item.img" src="{{ item.img }}" alt="{{ item.text }}">
         </div>
         <h4>{{ scores[i] }}</h4>
         <p>{{ item.text }}</p>

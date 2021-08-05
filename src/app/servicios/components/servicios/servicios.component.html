@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4 content-card" *ngFor="let servicio of services">
         <div class="card">
-          <img src="{{ servicio.img }}" alt="">
+          <img *ngIf="servicio.img" src="{{ servicio.img }}" alt="">
           <div class="text-card">
             <h5>{{ servicio.title | firstWord }}</h5>
             <h5>{{ servicio.title | finalText }}</h5>

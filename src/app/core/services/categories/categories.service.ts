@@ -17,11 +17,6 @@ export class CategoriesService {
   }
 
   async getAllCategories(): Promise<ICategoryModel[]> {
-
-    const valueInStorage = this.utilsService.getInfoLocalStorage('categories');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return await this.httpClient.get<ICategoryModel[]>(`${this.url}categories`)
       .toPromise()
       .then(async (response: any) => {
@@ -33,7 +28,6 @@ export class CategoriesService {
             categories.push(this.getWordPressCategory(response, category));
           }
         });
-        this.utilsService.saveInStorage('categories', categories);
         return categories;
       });
   }

@@ -60,14 +60,9 @@ export class ProductService {
   }
 
   getAllProducts(): Promise<ProductsInterface[]> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('producto');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return this.httpClient.get<ProductsInterface[]>(`${this.url}producto/?_embed`)
       .toPromise()
       .then((response: any) => {
-        this.utilService.saveInStorage('producto', response);
         return response;
       });
   }

@@ -25,14 +25,9 @@ export class CustomersService {
   }
 
   getAllCustomers(): Promise<CustomersInterface[]> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('clientes');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return this.httpClient.get<CustomersInterface[]>(`${this.url}clientes/?_embed`)
       .toPromise()
       .then((response: any) => {
-        this.utilService.saveInStorage('clientes', response);
         return response;
       });
   }

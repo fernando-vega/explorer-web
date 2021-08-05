@@ -15,14 +15,9 @@ export class ItemsCounterService {
   constructor(private httpClient: HttpClient, private utilService: UtilsService) { }
 
   getAllItems(): Promise<IService[]> {
-    const valueInStorage = this.utilService.getInfoLocalStorage('contador');
-    if (valueInStorage != null) {
-      return Promise.resolve(valueInStorage);
-    }
     return this.httpClient.get<IService[]>(`${this.url}contador/?_embed`)
       .toPromise()
       .then((response: any) => {
-        this.utilService.saveInStorage('contador', response);
         return response;
       });
   }

@@ -6,7 +6,7 @@
       </h5>
     </div>
     <div class="row content-event">
-      <div class="content-event-img">
+      <div *ngIf="event.image" class="content-event-img">
         <img src="{{ event.image }}" alt="{{ event.title }}">
       </div>
       <blockquote>
